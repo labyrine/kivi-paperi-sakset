@@ -12,5 +12,5 @@
 -Projektin dokumentaation kieli: Suomi
 
 ### Lähteet
-- Trie: https://en.wikipedia.org/wiki/Trie 
+- [Trie](https://en.wikipedia.org/wiki/Trie)
 
