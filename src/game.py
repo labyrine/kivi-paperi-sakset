@@ -102,7 +102,7 @@ class RockPaperScissors:
 
         while True:
             players_choice = input("Valitse kivi (k), paperi (p) tai sakset (s)")
-            if players_choice in ['k', 'p', 's']:
+            if players_choice in ['k', 'p', 's'] and len(players_choice) == 1:
                 break
             else:
                 print("Syötä vain kirjain k, p tai s")
