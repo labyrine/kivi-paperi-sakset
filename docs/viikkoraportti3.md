@@ -11,7 +11,8 @@ Eli seuraavaksi alan ainakin testaamaan, miksi tekoälyni ei toimi.
 
 Muokkasin myös pelin antamia tekstejä helpommin seurattaviksi.
 
-Seuraavaksi minun pitää aloittaa tekoälyn ongelmien ratkomisen lisäksi testien kirjoittaminen. 
+Seuraavaksi minun pitää aloittaa tekoälyn ongelmien ratkomisen lisäksi testien kirjoittaminen ja ottaa pylint käyttöön. 
+Ja muutenkin katsoa miten muokata tekoälyä paremmaksi.
 
 Muita asioita mihin minun kannattaisi kiinnittää huomiota seuraavaksi ovat mm. dokumentoinnin parantaminen sekä koodin toistuvuuden vähentäminen.
 
