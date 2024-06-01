@@ -17,7 +17,7 @@ class RockPaperScissors:
     def __init__(self):
         """The constructor of the class the RockPaperScissors that sets up the game.
         """
-        self.number_of_rounds = 10
+        self.number_of_rounds = 20
         self.curret_round = 0
         self.player_points = 0
         self.ai_points = 0
@@ -31,6 +31,7 @@ class RockPaperScissors:
         """
 
         print("Tervetuloa peliin")
+        print("Pelissä on", self.number_of_rounds, "kierrosta")
         while self.curret_round < self.number_of_rounds:
             if not self.round():
                 break
@@ -45,9 +46,11 @@ class RockPaperScissors:
         """
 
         self.curret_round += 1
+        print("Kierros:", self.curret_round)
         players_choice = self.get_player_choice()
         ai_choice = self.ai_selector.play_ai()
         result = self.who_won(players_choice, ai_choice)
+        print("Sinä valitsit", players_choice)
         print("Pelikone valitsi", ai_choice)
         print(result)
         self.create_string(players_choice)
