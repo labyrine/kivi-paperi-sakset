@@ -1,5 +1,5 @@
-import random
 from trie import Trie
+from ai import AiSelector
 
 class RockPaperScissors:
     """Class which runs the game rock-paper-scissors.
@@ -12,6 +12,7 @@ class RockPaperScissors:
         draw: Number of draws.
         last_seven: String for storing the last seven of players choices.
         trie: Data structure for saving strings and substrings.
+        ai_selector: Thing that compares different Ai-models performance and chooces most suitable one.
     """
     def __init__(self):
         """The constructor of the class the RockPaperScissors that sets up the game.
@@ -23,6 +24,7 @@ class RockPaperScissors:
         self.draw = 0
         self.last_seven = ""
         self.trie = Trie()
+        self.ai_selector = AiSelector(5, self.last_seven, self.trie)
 
     def start(self):
         """Function for starting the game and handling ending display of the game.
@@ -44,45 +46,14 @@ class RockPaperScissors:
 
         self.curret_round += 1
         players_choice = self.get_player_choice()
-        ai_choice = self.get_ai_choice()
+        ai_choice = self.ai_selector.play_ai()
         result = self.who_won(players_choice, ai_choice)
         print("Pelikone valitsi", ai_choice)
         print(result)
         self.create_string(players_choice)
         self.save_player_choice()
+        self.ai_selector.update_scores(players_choice)
         return True
-
-    def get_ai_choice(self):
-        """Test version of function for getting machines choice to play. Mix of randomization and using frequency for strings which have length of two.
-        """
-
-        if len(self.last_seven) < 2:
-            x = random.randint(1, 3)
-            if x == 1:
-                ai_choice = "k"
-            elif x == 2:
-                ai_choice = "p"
-            elif x == 3:
-                ai_choice = "s"
-            return ai_choice
-        else:
-            max_frequency = self.get_max_frequency_for_two()
-            if max_frequency == "k":
-                ai_choice = "p"
-            elif max_frequency == "p":
-                ai_choice = "s"
-            elif max_frequency == "s":
-                ai_choice = "k"
-            else:
-                x = random.randint(1, 3)
-                if x == 1:
-                    ai_choice = "k"
-                elif x == 2:
-                    ai_choice = "p"
-                elif x == 3:
-                    ai_choice = "s"
-                return ai_choice
-            return ai_choice
     
     def get_max_frequency_for_two(self):
         """Function for getting the next max frequency for strings which have the length of two.

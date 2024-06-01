@@ -1,4 +1,5 @@
-class Ai_1:
+import random
+class Ai1:
     def __init__(self, trie, last_seven):
         """The constructor for class Ai1.
 
@@ -29,7 +30,7 @@ class Ai_1:
         elif choice == "s":
             return "k"
 
-class Ai_2:
+class Ai2:
     def __init__(self, trie, last_seven):
         """The constructor for class Ai2.
         """
@@ -54,7 +55,7 @@ class Ai_2:
         elif choice == "s":
             return "k"
 
-class Ai_3:
+class Ai3:
     def __init__(self, trie, last_seven):
         """The constructor for class Ai3.
         """
@@ -79,7 +80,7 @@ class Ai_3:
         elif choice == "s":
             return "k"
 
-class Ai_4:
+class Ai4:
     def __init__(self, trie, last_seven):
         """The constructor for class Ai5.
         """
@@ -104,7 +105,7 @@ class Ai_4:
         elif choice == "s":
             return "k"
 
-class Ai_5:
+class Ai5:
     def __init__(self, trie, last_seven):
         """The constructor for class Ai5.
         """
@@ -129,7 +130,7 @@ class Ai_5:
         elif choice == "s":
             return "k"
 
-class Ai_6:
+class Ai6:
     def __init__(self, trie, last_seven):
         """The constructor for class Ai6.
         """
@@ -154,7 +155,7 @@ class Ai_6:
         elif choice == "s":
             return "k"
 
-class Multi_ai:
+class AiSelector:
     def __init__(self, focus_length, last_seven, trie):
         """The constructor for class multi ai.
 
@@ -174,14 +175,14 @@ class Multi_ai:
 
         self.scores = [0] * 6
         self.focus_length = focus_length
-        last_seven = last_seven
+        self.last_seven = last_seven
         self.trie = trie
-        self.mod1 = Ai_1(trie, last_seven)
-        self.mod2 = Ai_2(trie, last_seven)
-        self.mod3 = Ai_3(trie, last_seven)
-        self.mod4 = Ai_4(trie, last_seven)
-        self.mod5 = Ai_5(trie, last_seven)
-        self.mod6 = Ai_6(trie, last_seven)
+        self.mod1 = Ai1(trie, last_seven)
+        self.mod2 = Ai2(trie, last_seven)
+        self.mod3 = Ai3(trie, last_seven)
+        self.mod4 = Ai4(trie, last_seven)
+        self.mod5 = Ai5(trie, last_seven)
+        self.mod6 = Ai6(trie, last_seven)
         self.models = [self.mod1, self.mod2, self.mod3, self.mod4, self.mod5, self.mod6]
         self.stats = [{"voitot": 0, "häviöt": 0, "tasapelit": 0} for _ in self.models]
     
@@ -223,6 +224,15 @@ class Multi_ai:
     def play_ai(self):
         """Function for running the best AI at the moment.
         """
+        if len(self.last_seven) < 7:
+            x = random.randint(1, 3)
+            if x == 1:
+                ai_choice = "k"
+            elif x == 2:
+                ai_choice = "p"
+            elif x == 3:
+                ai_choice = "s"
+            return ai_choice
         best_model = self.select_best_ai()
         return best_model.prediction()
     
