@@ -1,4 +1,6 @@
 import random
+
+
 class Ai1:
     def __init__(self, trie, last_seven):
         """The constructor for class Ai1.
@@ -16,12 +18,14 @@ class Ai1:
     def prediction(self):
         if len(self.last_seven) < self.length:
             return ""
-        frequencies = self.trie.get_next_frequencies(self.last_seven[-self.length:])
+        frequencies = self.trie.get_next_frequencies(
+            self.last_seven[-self.length:])
         if frequencies:
-            most_frequent_player_move = max(frequencies, key=lambda k: frequencies.get(k))
+            most_frequent_player_move = max(
+                frequencies, key=lambda k: frequencies.get(k))
             return self.counter_move(most_frequent_player_move)
         return ""
-    
+
     def counter_move(self, choice):
         if choice == "k":
             return "p"
@@ -29,6 +33,7 @@ class Ai1:
             return "s"
         elif choice == "s":
             return "k"
+
 
 class Ai2:
     def __init__(self, trie, last_seven):
@@ -41,12 +46,14 @@ class Ai2:
     def prediction(self):
         if len(self.last_seven) < self.length:
             return ""
-        frequencies = self.trie.get_next_frequencies(self.last_seven[-self.length:])
+        frequencies = self.trie.get_next_frequencies(
+            self.last_seven[-self.length:])
         if frequencies:
-            most_frequent_player_move = max(frequencies, key=lambda k: frequencies.get(k))
+            most_frequent_player_move = max(
+                frequencies, key=lambda k: frequencies.get(k))
             return self.counter_move(most_frequent_player_move)
         return ""
-    
+
     def counter_move(self, choice):
         if choice == "k":
             return "p"
@@ -54,6 +61,7 @@ class Ai2:
             return "s"
         elif choice == "s":
             return "k"
+
 
 class Ai3:
     def __init__(self, trie, last_seven):
@@ -66,12 +74,14 @@ class Ai3:
     def prediction(self):
         if len(self.last_seven) < self.length:
             return ""
-        frequencies = self.trie.get_next_frequencies(self.last_seven[-self.length:])
+        frequencies = self.trie.get_next_frequencies(
+            self.last_seven[-self.length:])
         if frequencies:
-            most_frequent_player_move = max(frequencies, key=lambda k: frequencies.get(k))
+            most_frequent_player_move = max(
+                frequencies, key=lambda k: frequencies.get(k))
             return self.counter_move(most_frequent_player_move)
         return ""
-    
+
     def counter_move(self, choice):
         if choice == "k":
             return "p"
@@ -79,6 +89,7 @@ class Ai3:
             return "s"
         elif choice == "s":
             return "k"
+
 
 class Ai4:
     def __init__(self, trie, last_seven):
@@ -91,12 +102,14 @@ class Ai4:
     def prediction(self):
         if len(self.last_seven) < self.length:
             return ""
-        frequencies = self.trie.get_next_frequencies(self.last_seven[-self.length:])
+        frequencies = self.trie.get_next_frequencies(
+            self.last_seven[-self.length:])
         if frequencies:
-            most_frequent_player_move = max(frequencies, key=lambda k: frequencies.get(k))
+            most_frequent_player_move = max(
+                frequencies, key=lambda k: frequencies.get(k))
             return self.counter_move(most_frequent_player_move)
         return ""
-    
+
     def counter_move(self, choice):
         if choice == "k":
             return "p"
@@ -104,6 +117,7 @@ class Ai4:
             return "s"
         elif choice == "s":
             return "k"
+
 
 class Ai5:
     def __init__(self, trie, last_seven):
@@ -116,12 +130,14 @@ class Ai5:
     def prediction(self):
         if len(self.last_seven) < self.length:
             return ""
-        frequencies = self.trie.get_next_frequencies(self.last_seven[-self.length:])
+        frequencies = self.trie.get_next_frequencies(
+            self.last_seven[-self.length:])
         if frequencies:
-            most_frequent_player_move = max(frequencies, key=lambda k: frequencies.get(k))
+            most_frequent_player_move = max(
+                frequencies, key=lambda k: frequencies.get(k))
             return self.counter_move(most_frequent_player_move)
         return ""
-    
+
     def counter_move(self, choice):
         if choice == "k":
             return "p"
@@ -129,6 +145,7 @@ class Ai5:
             return "s"
         elif choice == "s":
             return "k"
+
 
 class Ai6:
     def __init__(self, trie, last_seven):
@@ -141,12 +158,14 @@ class Ai6:
     def prediction(self):
         if len(self.last_seven) < self.length:
             return ""
-        frequencies = self.trie.get_next_frequencies(self.last_seven[-self.length:])
+        frequencies = self.trie.get_next_frequencies(
+            self.last_seven[-self.length:])
         if frequencies:
-            most_frequent_player_move = max(frequencies, key=lambda k: frequencies.get(k))
+            most_frequent_player_move = max(
+                frequencies, key=lambda k: frequencies.get(k))
             return self.counter_move(most_frequent_player_move)
         return ""
-    
+
     def counter_move(self, choice):
         if choice == "k":
             return "p"
@@ -154,6 +173,7 @@ class Ai6:
             return "s"
         elif choice == "s":
             return "k"
+
 
 class AiSelector:
     def __init__(self, focus_length, last_seven, trie):
@@ -183,9 +203,11 @@ class AiSelector:
         self.mod4 = Ai4(trie, last_seven)
         self.mod5 = Ai5(trie, last_seven)
         self.mod6 = Ai6(trie, last_seven)
-        self.models = [self.mod1, self.mod2, self.mod3, self.mod4, self.mod5, self.mod6]
-        self.stats = [{"voitot": 0, "häviöt": 0, "tasapelit": 0} for _ in self.models]
-    
+        self.models = [self.mod1, self.mod2,
+                       self.mod3, self.mod4, self.mod5, self.mod6]
+        self.stats = [{"voitot": 0, "häviöt": 0, "tasapelit": 0}
+                      for _ in self.models]
+
     def update_scores(self, players_actual_move):
         """Function for updatings string last_seven.
 
@@ -218,7 +240,7 @@ class AiSelector:
         if ai_scores:
             best_model_index = ai_scores.index(max(ai_scores))
             return self.models[best_model_index]
-        else: 
+        else:
             print("Tapahtui virhe valittaessa sopivaa AI:ta")
 
     def play_ai(self):
@@ -235,10 +257,10 @@ class AiSelector:
             return ai_choice
         best_model = self.select_best_ai()
         return best_model.prediction()
-    
+
     def print_stats(self):
         """Function for printing the statistics of each model.
         """
         for i, model_stats in enumerate(self.stats):
-            print(f'mod{i+1}: Voitot: {model_stats["voitot"]}, Häviöt: {model_stats["häviöt"]}, Tasapelit: {model_stats["tasapelit"]}')
-            
+            print(
+                f'mod{i+1}: Voitot: {model_stats["voitot"]}, Häviöt: {model_stats["häviöt"]}, Tasapelit: {model_stats["tasapelit"]}')

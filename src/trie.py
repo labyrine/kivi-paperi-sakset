@@ -5,11 +5,13 @@ class Node:
         children: Number of different characters that can be used.
         frequency: Tells how many times specific string has been encountered.
     """
+
     def __init__(self):
         """The constructor for class Node.
         """
         self.children = [None] * 3
         self.frequency = 0
+
 
 class Trie:
     """Class which makes a trie data structure.
@@ -18,6 +20,7 @@ class Trie:
         root: Number of rounds in a game.
         characters_index: Indicates which round of the game is currently going.
     """
+
     def __init__(self):
         """The constructor for class Trie.
         """
@@ -42,7 +45,7 @@ class Trie:
 
         if self.root is None:
             return 0
-        
+
         node = self.root
         for c in key:
             i = self._character_to_index(c)
@@ -68,7 +71,7 @@ class Trie:
                 node.children[i] = Node()
             node = node.children[i]
         node.frequency += 1
-    
+
     def get_next_frequencies(self, key):
         """Function for getting the frequencies for the next charaxters after the key string.
 
@@ -78,14 +81,14 @@ class Trie:
 
         if self.root is None:
             return {}
-        
+
         node = self.root
         for c in key:
             i = self._character_to_index(c)
             if node.children[i] is None:
                 return {}
             node = node.children[i]
-        
+
         frequencies = {}
         characters = 'kps'
         for i in range(3):
@@ -93,7 +96,7 @@ class Trie:
             if child is not None:
                 frequencies[characters[i]] = child.frequency
         return frequencies
-    
+
     def delete(self, key):
         """Function for deleting a string from the data structure which calls a another function.
 
@@ -115,7 +118,7 @@ class Trie:
 
         if node is None:
             return None
-        
+
         if depth == len(key):
             if node.frequency > 0:
                 node.frequency -= 1
@@ -131,7 +134,8 @@ class Trie:
             return node
 
         index = self._character_to_index(key[depth])
-        node.children[index] = self._delete_help_function(node.children[index], key, depth + 1)
+        node.children[index] = self._delete_help_function(
+            node.children[index], key, depth + 1)
 
         if node.frequency == 0:
             all_are_none = True

@@ -1,6 +1,7 @@
 from trie import Trie
 from ai import AiSelector
 
+
 class RockPaperScissors:
     """Class which runs the game rock-paper-scissors.
 
@@ -14,6 +15,7 @@ class RockPaperScissors:
         trie: Data structure for saving strings and substrings.
         ai_selector: Thing that compares different Ai-models performance and chooces most suitable one.
     """
+
     def __init__(self):
         """The constructor of the class the RockPaperScissors that sets up the game.
         """
@@ -57,7 +59,7 @@ class RockPaperScissors:
         self.save_player_choice()
         self.ai_selector.update_scores(players_choice)
         return True
-    
+
     def get_max_frequency_for_two(self):
         """Function for getting the next max frequency for strings which have the length of two.
         """
@@ -66,23 +68,25 @@ class RockPaperScissors:
             return ""
         frequencies = self.trie.get_next_frequencies(self.last_seven[-2:])
         if frequencies:
-            most_frequent_player_move = max(frequencies, key=lambda k: frequencies.get(k))
+            most_frequent_player_move = max(
+                frequencies, key=lambda k: frequencies.get(k))
             return most_frequent_player_move
         return ""
-        
+
     def get_player_choice(self):
         """Function for getting players choice to play.
         """
 
         while True:
-            players_choice = input("Valitse kivi (k), paperi (p) tai sakset (s)")
+            players_choice = input(
+                "Valitse kivi (k), paperi (p) tai sakset (s)")
             if players_choice in ['k', 'p', 's'] and len(players_choice) == 1:
                 break
             else:
                 print("Syötä vain kirjain k, p tai s")
 
         return players_choice
-    
+
     def create_string(self, players_choice):
         """Function for updatings string last_seven.
 
@@ -94,7 +98,7 @@ class RockPaperScissors:
             self.last_seven += players_choice
         else:
             self.last_seven = self.last_seven[1:] + players_choice
-    
+
     def save_player_choice(self):
         """Function for saving every substring of the string to trie if string is at least the lenght of 2 but not longer than 7.
         """
@@ -103,7 +107,6 @@ class RockPaperScissors:
             for length in range(2, len(self.last_seven) + 1):
                 substring = self.last_seven[-length:]
                 self.trie.add(substring)
-        
 
     def who_won(self, players_choice, ai_choice):
         """Function for figuring out who won the round.
@@ -117,14 +120,14 @@ class RockPaperScissors:
             self.draw += 1
             return 'Tasapeli'
         elif players_choice == "k" and ai_choice == "s":
-            self.player_points +=1
+            self.player_points += 1
             return 'Sinä voitit'
         elif players_choice == "s" and ai_choice == "p":
-            self.player_points +=1
+            self.player_points += 1
             return 'Sinä voitit'
         elif players_choice == "p" and ai_choice == "k":
-            self.player_points +=1
+            self.player_points += 1
             return 'Sinä voitit'
         else:
-            self.ai_points +=1
+            self.ai_points += 1
             return 'Pelikone voitti'
