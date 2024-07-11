@@ -10,6 +10,7 @@
 - Ohjelmointikielet, joilla voin vertaisarvioida: Python
 - Opinto-ohjelma: Tietojenkäsittelytieteen kandidaatti
 -Projektin dokumentaation kieli: Suomi
+- Jatkan vanhaa työtäni, jonka aloitin edellisellä kurssin toteutuksella
 
 ### Lähteet
 - [Trie](https://en.wikipedia.org/wiki/Trie)
