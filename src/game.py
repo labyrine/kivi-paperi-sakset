@@ -60,19 +60,6 @@ class RockPaperScissors:
         self.ai_selector.update_scores(players_choice)
         return True
 
-    def get_max_frequency_for_two(self):
-        """Function for getting the next max frequency for strings which have the length of two.
-        """
-
-        if len(self.last_seven) < 2:
-            return ""
-        frequencies = self.trie.get_next_frequencies(self.last_seven[-2:])
-        if frequencies:
-            most_frequent_player_move = max(
-                frequencies, key=lambda k: frequencies.get(k))
-            return most_frequent_player_move
-        return ""
-
     def get_player_choice(self):
         """Function for getting players choice to play.
         """
