@@ -223,7 +223,7 @@ class AiSelector:
                 self.scores[i] -= 1
                 self.stats[i]["häviöt"] += 1
             elif (players_actual_move == "k" and prediction == "p") or (players_actual_move == "p" and prediction == "s") or (players_actual_move == "s" and prediction == "k"):
-                self.scores[i] -= 1
+                self.scores[i] += 1
                 self.stats[i]["voitot"] += 1
 
     def select_best_ai(self):
