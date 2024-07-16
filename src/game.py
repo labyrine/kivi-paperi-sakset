@@ -57,6 +57,7 @@ class RockPaperScissors:
         print(result)
         self.create_string(players_choice)
         self.save_player_choice()
+        self.ai_selector.update_last_seven(self.last_seven)
         self.ai_selector.update_scores(players_choice)
         return True
 
