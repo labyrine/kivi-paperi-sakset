@@ -26,7 +26,7 @@ class RockPaperScissors:
         self.draw = 0
         self.last_seven = ""
         self.trie = Trie()
-        self.ai_selector = AiSelector(5, self.last_seven, self.trie)
+        self.ai_selector = AiSelector(5, self.trie)
 
     def start(self):
         """Function for starting the game and handling ending display of the game.
@@ -42,6 +42,7 @@ class RockPaperScissors:
         print("Pelaaja voitti", self.player_points, "kertaa")
         print("Pelikone voitti", self.ai_points, "kertaa")
         print("Tasapeli tapahtui", self.draw, "kertaa")
+        self.ai_selector.print_ai_stats()
 
     def round(self):
         """Function for handling one round of the game.

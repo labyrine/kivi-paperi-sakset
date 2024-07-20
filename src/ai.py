@@ -16,6 +16,8 @@ class Ai1:
         self.last_seven = last_seven
 
     def prediction(self):
+        """Function for predictiong what player might chooce on next round with frequencies.
+        """
         if len(self.last_seven) < self.length:
             return ""
         frequencies = self.trie.get_next_frequencies(
@@ -28,6 +30,8 @@ class Ai1:
         return ""
 
     def counter_move(self, choice):
+        """Function for the AI to choose best thing against the prediction of players choice.
+        """
         if choice == "k":
             return "p"
         elif choice == "p":
@@ -182,14 +186,15 @@ class Ai6:
 
 
 class AiSelector:
-    def __init__(self, focus_length, last_seven, trie):
+    def __init__(self, focus_length, trie):
         """The constructor for class AiSelector.
 
         Attributes:
-        scores: Tells how long the string tha the AI will process.
+        scores: Points for all the AIs based on how they well they do.
+        focus_length: Tells how long the string that the AI will process is.
         trie: Data structure for saving strings and substrings.
         mod1: AI-model 1.
-        mod2:AI-model 2.
+        mod2: AI-model 2.
         mod3: AI-model 3.
         mod4: AI-model 4
         mod5: AI-model 5.
@@ -222,7 +227,7 @@ class AiSelector:
             model.last_seven = last_seven
 
     def update_scores(self, players_actual_move):
-        """Function for updating string last_seven.
+        """Function for updating scores.
 
         Args:
             players_actual_move (String): Players choice for the round.
@@ -260,21 +265,19 @@ class AiSelector:
         """Function for running the best AI at the moment.
         """
         if len(self.models[0].last_seven) < 7:
-            x = random.randint(1, 3)
-            if x == 1:
-                ai_choice = "k"
-            elif x == 2:
-                ai_choice = "p"
-            elif x == 3:
-                ai_choice = "s"
+            ai_choice = random.choice(["k", "p", "s"])
             return ai_choice
         best_model = self.select_best_ai()
         prediction = best_model.prediction()
-        return prediction
+        if prediction:
+            return prediction
+        ai_choice = random.choice(["k", "p", "s"])
+        return ai_choice
 
-    def print_stats(self):
+    def print_ai_stats(self):
         """Function for printing the statistics of each model.
         """
+        print(f"Mallien statistiikat:")
         for i, model_stats in enumerate(self.stats):
             print(
-                f'mod{i+1}: Voitot: {model_stats["voitot"]}, Häviöt: {model_stats["häviöt"]}, Tasapelit: {model_stats["tasapelit"]}')
+                f'malli{i+1}: Voitot: {model_stats["voitot"]}, Häviöt: {model_stats["häviöt"]}, Tasapelit: {model_stats["tasapelit"]}')
