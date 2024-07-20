@@ -56,10 +56,11 @@ class AiSelector:
         self.focus_length = focus_length
         self.trie = trie
         last_seven = ""
-        self.models = [BaseAi(length, trie, last_seven) for length in range(1, 7)]
+        self.models = [BaseAi(length, trie, last_seven)
+                       for length in range(1, 7)]
         self.stats = [{"voitot": 0, "häviöt": 0, "tasapelit": 0}
                       for _ in self.models]
-        
+
     def update_last_seven(self, last_seven):
         """Function for updating string last_seven.
 

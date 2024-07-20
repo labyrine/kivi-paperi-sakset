@@ -42,7 +42,8 @@ class RockPaperScissors:
         print("Pelaaja voitti", self.player_points, "kertaa")
         print("Pelikone voitti", self.ai_points, "kertaa")
         print("Tasapeli tapahtui", self.draw, "kertaa")
-        print("AI:n voittoprosentti:", round((self.ai_points / self.number_of_rounds) * 100, 1), "%")
+        print("AI:n voittoprosentti:", round(
+            (self.ai_points / self.number_of_rounds) * 100, 1), "%")
         self.ai_selector.print_ai_stats()
         print()
 
