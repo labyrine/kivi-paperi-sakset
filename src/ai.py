@@ -1,9 +1,9 @@
 import random
 
 
-class Ai1:
-    def __init__(self, trie, last_seven):
-        """The constructor for class Ai1.
+class BaseAi:
+    def __init__(self, length, trie, last_seven):
+        """The constructor for class base class AI.
 
         Attributes:
         length: Tells how long the string tha the AI will process.
@@ -11,7 +11,7 @@ class Ai1:
         last_seven: String for storing the last seven of players choices.
         """
 
-        self.length = 1
+        self.length = length
         self.trie = trie
         self.last_seven = last_seven
 
@@ -40,151 +40,6 @@ class Ai1:
             return "k"
 
 
-class Ai2:
-    def __init__(self, trie, last_seven):
-        """The constructor for class Ai2.
-        """
-        self.length = 2
-        self.trie = trie
-        self.last_seven = last_seven
-
-    def prediction(self):
-        if len(self.last_seven) < self.length:
-            return ""
-        frequencies = self.trie.get_next_frequencies(
-            self.last_seven[-self.length:])
-        if frequencies:
-            most_frequent_player_move = max(
-                frequencies, key=lambda k: frequencies.get(k))
-            prediction = self.counter_move(most_frequent_player_move)
-            return prediction
-        return ""
-
-    def counter_move(self, choice):
-        if choice == "k":
-            return "p"
-        elif choice == "p":
-            return "s"
-        elif choice == "s":
-            return "k"
-
-
-class Ai3:
-    def __init__(self, trie, last_seven):
-        """The constructor for class Ai3.
-        """
-        self.length = 3
-        self.trie = trie
-        self.last_seven = last_seven
-
-    def prediction(self):
-        if len(self.last_seven) < self.length:
-            return ""
-        frequencies = self.trie.get_next_frequencies(
-            self.last_seven[-self.length:])
-        if frequencies:
-            most_frequent_player_move = max(
-                frequencies, key=lambda k: frequencies.get(k))
-            prediction = self.counter_move(most_frequent_player_move)
-            return prediction
-        return ""
-
-    def counter_move(self, choice):
-        if choice == "k":
-            return "p"
-        elif choice == "p":
-            return "s"
-        elif choice == "s":
-            return "k"
-
-
-class Ai4:
-    def __init__(self, trie, last_seven):
-        """The constructor for class Ai5.
-        """
-        self.length = 4
-        self.trie = trie
-        self.last_seven = last_seven
-
-    def prediction(self):
-        if len(self.last_seven) < self.length:
-            return ""
-        frequencies = self.trie.get_next_frequencies(
-            self.last_seven[-self.length:])
-        if frequencies:
-            most_frequent_player_move = max(
-                frequencies, key=lambda k: frequencies.get(k))
-            prediction = self.counter_move(most_frequent_player_move)
-            return prediction
-        return ""
-
-    def counter_move(self, choice):
-        if choice == "k":
-            return "p"
-        elif choice == "p":
-            return "s"
-        elif choice == "s":
-            return "k"
-
-
-class Ai5:
-    def __init__(self, trie, last_seven):
-        """The constructor for class Ai5.
-        """
-        self.length = 5
-        self.trie = trie
-        self.last_seven = last_seven
-
-    def prediction(self):
-        if len(self.last_seven) < self.length:
-            return ""
-        frequencies = self.trie.get_next_frequencies(
-            self.last_seven[-self.length:])
-        if frequencies:
-            most_frequent_player_move = max(
-                frequencies, key=lambda k: frequencies.get(k))
-            prediction = self.counter_move(most_frequent_player_move)
-            return prediction
-        return ""
-
-    def counter_move(self, choice):
-        if choice == "k":
-            return "p"
-        elif choice == "p":
-            return "s"
-        elif choice == "s":
-            return "k"
-
-
-class Ai6:
-    def __init__(self, trie, last_seven):
-        """The constructor for class Ai6.
-        """
-        self.length = 6
-        self.trie = trie
-        self.last_seven = last_seven
-
-    def prediction(self):
-        if len(self.last_seven) < self.length:
-            return ""
-        frequencies = self.trie.get_next_frequencies(
-            self.last_seven[-self.length:])
-        if frequencies:
-            most_frequent_player_move = max(
-                frequencies, key=lambda k: frequencies.get(k))
-            prediction = self.counter_move(most_frequent_player_move)
-            return prediction
-        return ""
-
-    def counter_move(self, choice):
-        if choice == "k":
-            return "p"
-        elif choice == "p":
-            return "s"
-        elif choice == "s":
-            return "k"
-
-
 class AiSelector:
     def __init__(self, focus_length, trie):
         """The constructor for class AiSelector.
@@ -193,12 +48,6 @@ class AiSelector:
         scores: Points for all the AIs based on how they well they do.
         focus_length: Tells how long the string that the AI will process is.
         trie: Data structure for saving strings and substrings.
-        mod1: AI-model 1.
-        mod2: AI-model 2.
-        mod3: AI-model 3.
-        mod4: AI-model 4
-        mod5: AI-model 5.
-        mod6: AI-model 6
         models: List of the AI models.
         stats: A list containing dictionaries to track the statistics for each model in the AI. 
         """
@@ -206,14 +55,8 @@ class AiSelector:
         self.scores = [0] * 6
         self.focus_length = focus_length
         self.trie = trie
-        self.mod1 = Ai1(trie, "")
-        self.mod2 = Ai2(trie, "")
-        self.mod3 = Ai3(trie, "")
-        self.mod4 = Ai4(trie, "")
-        self.mod5 = Ai5(trie, "")
-        self.mod6 = Ai6(trie, "")
-        self.models = [self.mod1, self.mod2,
-                       self.mod3, self.mod4, self.mod5, self.mod6]
+        last_seven = ""
+        self.models = [BaseAi(length, trie, last_seven) for length in range(1, 7)]
         self.stats = [{"voitot": 0, "häviöt": 0, "tasapelit": 0}
                       for _ in self.models]
         
