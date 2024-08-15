@@ -19,7 +19,7 @@ class RockPaperScissors:
     def __init__(self):
         """The constructor of the class the RockPaperScissors that sets up the game.
         """
-        self.number_of_rounds = 20
+        self.number_of_rounds = 50
         self.curret_round = 0
         self.player_points = 0
         self.ai_points = 0

@@ -101,6 +101,7 @@ class AiSelector:
 
         if ai_scores:
             best_model_index = ai_scores.index(max(ai_scores))
+            print(f"Valittu paras AI{self.models[best_model_index].length}") # Print
             return self.models[best_model_index]
         else:
             print("Tapahtui virhe valittaessa sopivaa AI:ta")
@@ -110,12 +111,15 @@ class AiSelector:
         """
         if len(self.models[0].last_seven) < 7:
             ai_choice = random.choice(["k", "p", "s"])
+            print(f"Randomisoitu valinta, kun ei ei etsitty tai löydetty sopivaa AI:ta: {ai_choice}") # Print
             return ai_choice
         best_model = self.select_best_ai()
         prediction = best_model.prediction()
         if prediction:
+            print(f"Ai valinta perustuen parhaaseen malliin AI{best_model.length}: {prediction}") # Print
             return prediction
         ai_choice = random.choice(["k", "p", "s"])
+        print(f"Randomisoitu valinta, kun valitun AI:n ennustetta ei löytynyt: {ai_choice}") # Print
         return ai_choice
 
     def print_ai_stats(self):
