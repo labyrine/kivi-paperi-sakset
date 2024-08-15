@@ -14,4 +14,5 @@
 
 ### Lähteet
 - [Trie](https://en.wikipedia.org/wiki/Trie)
+- [Markovin ketjujen käyttö kivi-paperi-sakset pelissä](https://arxiv.org/pdf/2003.06769)
 
