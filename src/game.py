@@ -44,7 +44,6 @@ class RockPaperScissors:
         print("Tasapeli tapahtui", self.draw, "kertaa")
         print("AI:n voittoprosentti:", round(
             (self.ai_points / self.number_of_rounds) * 100, 1), "%")
-        self.ai_selector.print_ai_stats()
         print()
 
     def round(self):
@@ -63,6 +62,8 @@ class RockPaperScissors:
         self.save_player_choice()
         self.ai_selector.update_last_seven(self.last_seven)
         self.ai_selector.update_scores(players_choice)
+        self.ai_selector.print_ai_stats()
+        print(f"Peluutettujen mallien pisteet {self.ai_selector.scores}")
         print()
         return True
 

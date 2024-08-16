@@ -89,37 +89,40 @@ class AiSelector:
                 self.stats[i]["voitot"] += 1
 
     def select_best_ai(self):
-        """Function for selecting best AI by finding the model which has the best score.
+        """Function for selecting best AI. It finds the model which has the best score by playing AI:s for number of times of focus_length.
         """
+        self.scores = [0] * 6
+        self.stats = [{"voitot": 0, "häviöt": 0, "tasapelit": 0}
+                      for _ in self.models]
         focus_choices = self.models[0].last_seven[-self.focus_length:]
-        ai_scores = []
-        for i in range(len(self.scores)):
-            model_score = self.scores[i]
-            model = self.models[i]
-            if model.last_seven[-self.focus_length:] == focus_choices:
-                ai_scores.append(model_score)
 
-        if ai_scores:
-            best_model_index = ai_scores.index(max(ai_scores))
-            print(f"Valittu paras AI{self.models[best_model_index].length}") # Print
-            return self.models[best_model_index]
-        else:
-            print("Tapahtui virhe valittaessa sopivaa AI:ta")
+        for a in focus_choices:
+            self.update_scores(a)
+
+        best_model_index = self.scores.index(max(self.scores))
+        print(f"Valittu paras AI{self.models[best_model_index].length}")
+        return self.models[best_model_index]
 
     def play_ai(self):
         """Function for running the best AI at the moment.
         """
         if len(self.models[0].last_seven) < 7:
             ai_choice = random.choice(["k", "p", "s"])
-            print(f"Randomisoitu valinta, kun ei ei etsitty tai löydetty sopivaa AI:ta: {ai_choice}") # Print
+            # Print
+            print(
+                f"Randomisoitu valinta, kun ei etsitty tai löydetty sopivaa AI:ta: {ai_choice}")
             return ai_choice
         best_model = self.select_best_ai()
         prediction = best_model.prediction()
         if prediction:
-            print(f"Ai valinta perustuen parhaaseen malliin AI{best_model.length}: {prediction}") # Print
+            # Print
+            print(
+                f"Ai valinta perustuen parhaaseen malliin AI{best_model.length}: {prediction}")
             return prediction
         ai_choice = random.choice(["k", "p", "s"])
-        print(f"Randomisoitu valinta, kun valitun AI:n ennustetta ei löytynyt: {ai_choice}") # Print
+        # Print
+        print(
+            f"Randomisoitu valinta, kun valitun AI:n ennustetta ei löytynyt: {ai_choice}")
         return ai_choice
 
     def print_ai_stats(self):
