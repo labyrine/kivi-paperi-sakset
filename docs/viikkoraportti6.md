@@ -31,4 +31,6 @@ Ja jos minun pitäisi tehdä niin, miten se kannattaa toteuttaa?
 Kannattaako minun tehdä apufunktio, joka simuloi minulle yhden pelin, jota sitten testata?
 - Onko ok, jos AI:t peluutetaan jokaisella kierroksella ja ne eivät pitäydy muutamassa tietyssä mallissa pelin aikana?
 Tästä oli jotain keskustelua, että niiden kannattaisi pysyä jo valitussa AI:ssa pidempiä aikoja.
-- Haluan varmistaa, että onko projektini laajuus riittävä tai tarpeeksi yhdenmukainen KPS-Markovin ketju paperin kanssa, jos tekoälyni toimii tässä raportissa kuvailemallani tavalla? 
+- Haluan varmistaa, että onko projektini laajuus riittävä tai tarpeeksi yhdenmukainen KPS-Markovin ketju paperin kanssa, jos tekoälyni toimii tässä raportissa kuvailemallani tavalla?
+
+Projektiin käytetty aika tällä viikolla: 19h
