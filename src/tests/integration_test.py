@@ -1,3 +1,4 @@
+import random
 import unittest
 
 from ai import BaseAi, AiSelector
@@ -34,6 +35,7 @@ class TestIntegration(unittest.TestCase):
             substring = s6[-length:]
             self.trie.add(substring)
         self.ai_selector = AiSelector(5, self.trie)
+        random.seed(0)
 
     def test_trie_structure(self):
         all_strings_with_frequencies = self.trie.get_all_strings_with_frequencies()
@@ -71,3 +73,9 @@ class TestIntegration(unittest.TestCase):
         choice = model.prediction()
         self.assertEqual(choice, "s")
         self.assertNotEqual(choice, "k")
+
+    def test_play_ai(self):
+        self.ai_selector = AiSelector(5, self.trie)
+        ai_choice = self.ai_selector.play_ai()
+        self.assertEqual(ai_choice, "p") # randomised
+        self.assertNotEqual(ai_choice, "k")
