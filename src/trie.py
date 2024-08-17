@@ -146,3 +146,32 @@ class Trie:
             if all_are_none:
                 return None
         return node
+
+    def _help_function_get_display(self, node, key, trie_contents):
+        """Help function for collecting strings and frequencies of trie by using recursion.
+
+        Args:
+           node (Node): Starting point of the trie data structure.
+           key (String): String consisting of characters k, p and/or s. Consists of contents up to the current node.
+           trie_contents (Tuple): Consists of string and frequency for the string.
+        """
+
+        if node is None:
+            return
+
+        if node.frequency > 0:
+            trie_contents.append((key, node.frequency))
+
+        characters = 'kps'
+        for i, child in enumerate(node.children):
+            if child is not None:
+                self._help_function_get_display(
+                    child, key + characters[i], trie_contents)
+
+    def get_all_strings_with_frequencies(self):
+        """Function to call _help_function_get_display and to return contents of trie.
+        """
+
+        trie_contents = []
+        self._help_function_get_display(self.root, "", trie_contents)
+        return trie_contents
