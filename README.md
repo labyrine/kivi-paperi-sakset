@@ -23,3 +23,5 @@
 - [Viikkoraportti 4](https://github.com/labyrine/kivi-paperi-sakset/blob/main/docs/viikkoraportti4.md)
   
 - [Viikkoraportti 5](https://github.com/labyrine/kivi-paperi-sakset/blob/main/docs/viikkoraportti5.md)
+
+- [Viikkoraportti 6](https://github.com/labyrine/kivi-paperi-sakset/blob/main/docs/viikkoraportti6.md)
