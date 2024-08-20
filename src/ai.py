@@ -106,11 +106,6 @@ class AiSelector:
     def play_ai(self):
         """Function for running the best AI at the moment.
         """
-        if len(self.models[0].last_seven) < 7:
-            ai_choice = random.choice(["k", "p", "s"])
-            print(
-                f"Randomisoitu valinta, kun ei etsitty tai löydetty sopivaa AI:ta: {ai_choice}")
-            return ai_choice
         best_model = self.select_best_ai()
         prediction = best_model.prediction()
         if prediction:
