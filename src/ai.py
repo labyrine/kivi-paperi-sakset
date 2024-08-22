@@ -50,6 +50,7 @@ class AiSelector:
         trie: Data structure for saving strings and substrings.
         models: List of the AI models.
         stats: A list containing dictionaries to track the statistics for each model in the AI. 
+        best_model: Holds the current best performing ai-model.
         """
 
         self.scores = [0] * 6
@@ -60,6 +61,7 @@ class AiSelector:
                        for length in range(1, 7)]
         self.stats = [{"voitot": 0, "häviöt": 0, "tasapelit": 0}
                       for _ in self.models]
+        self.best_model = self.models[0]
 
     def update_last_seven(self, last_seven):
         """Function for updating string last_seven.
@@ -79,14 +81,19 @@ class AiSelector:
 
         predictions = [model.prediction() for model in self.models]
         for i, prediction in enumerate(predictions):
+            if not prediction:
+                continue
             if prediction == players_actual_move:
                 self.stats[i]["tasapelit"] += 1
+                print(f"Mallin {i+1} ennustus on {prediction} eli tasapeli. Pelattu {players_actual_move}-kirjainta vastaan")
             elif (prediction == "k" and players_actual_move == "p") or (prediction == "p" and players_actual_move == "s") or (prediction == "s" and players_actual_move == "k"):
                 self.scores[i] -= 1
                 self.stats[i]["häviöt"] += 1
+                print(f"Mallin {i+1} ennustus on {prediction} eli häviö. Pisteet ovat nyt {self.scores[i]}. Pelattu {players_actual_move}-kirjainta vastaan")
             elif (players_actual_move == "k" and prediction == "p") or (players_actual_move == "p" and prediction == "s") or (players_actual_move == "s" and prediction == "k"):
                 self.scores[i] += 1
                 self.stats[i]["voitot"] += 1
+                print(f"Mallin {i+1} ennustus on {prediction} eli voitto! Pisteet ovat nyt {self.scores[i]}. Pelattu {players_actual_move}-kirjainta vastaan")
 
     def select_best_ai(self):
         """Function for selecting best AI. It finds the model which has the best score by playing AI:s for number of times of focus_length.
@@ -99,18 +106,18 @@ class AiSelector:
         for a in focus_choices:
             self.update_scores(a)
 
+        print(f"Pisteet: {self.scores}")
         best_model_index = self.scores.index(max(self.scores))
-        print(f"Valittu paras AI{self.models[best_model_index].length}")
-        return self.models[best_model_index]
+        print(f"Valittu paras AI{self.models[best_model_index].length}, jonka indeksi on {best_model_index}")
+        self.best_model = self.models[best_model_index]
 
     def play_ai(self):
         """Function for running the best AI at the moment.
         """
-        best_model = self.select_best_ai()
-        prediction = best_model.prediction()
+        prediction = self.best_model.prediction()
         if prediction:
             print(
-                f"Ai valinta perustuen parhaaseen malliin AI{best_model.length}: {prediction}")
+                f"Ai valinta perustuen parhaaseen malliin AI{self.best_model.length}: {prediction}")
             return prediction
         ai_choice = random.choice(["k", "p", "s"])
         print(

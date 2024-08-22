@@ -64,6 +64,7 @@ class RockPaperScissors:
         self.ai_selector.update_scores(players_choice)
         self.ai_selector.print_ai_stats()
         print(f"Peluutettujen mallien pisteet {self.ai_selector.scores}")
+        self.ai_selector.select_best_ai()
         print()
         return True
 
