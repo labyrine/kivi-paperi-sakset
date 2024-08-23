@@ -98,9 +98,6 @@ class AiSelector:
     def select_best_ai(self):
         """Function for selecting best AI. It finds the model which has the best score by playing AI:s for number of times of focus_length.
         """
-        self.scores = [0] * 6
-        self.stats = [{"voitot": 0, "häviöt": 0, "tasapelit": 0}
-                      for _ in self.models]
         focus_choices = self.models[0].last_seven[-self.focus_length:]
 
         for a in focus_choices:
