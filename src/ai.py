@@ -22,6 +22,7 @@ class BaseAi:
             return ""
         frequencies = self.trie.get_next_frequencies(
             self.last_seven[-self.length:])
+        #print(frequencies)
         if frequencies:
             most_frequent_player_move = max(
                 frequencies, key=lambda k: frequencies.get(k))
@@ -63,7 +64,6 @@ class AiSelector:
         self.stats = [{"voitot": 0, "häviöt": 0, "tasapelit": 0}
                       for _ in self.models]
         self.best_model = self.models[0]
-        self.last_seven_previous_5 = []
 
     def update_last_seven(self, last_seven):
         """Function for updating string last_seven. And managing last_seven_last_5, list of last_seven strings of 5 last rounds.
@@ -73,16 +73,6 @@ class AiSelector:
         """
         for model in self.models:
             model.last_seven = last_seven
-        self.last_seven_previous_5.append(last_seven)
-        if len(self.last_seven_previous_5) > 5:
-            self.last_seven_previous_5.pop(0)
-
-    def get_previous_last_sevens(self):
-        """Function for retrieving previous 5 last_seven strings.
-        """
-        if len(self.last_seven_previous_5) < self.focus_length:
-            return self.last_seven_previous_5
-        return self.last_seven_previous_5[-self.focus_length:]
 
     def update_scores(self, players_actual_move):
         """Function for updating scores.
@@ -90,8 +80,8 @@ class AiSelector:
         Args:
             players_actual_move (String): Players choice for the round.
         """
-
         predictions = [model.prediction() for model in self.models]
+        #print(predictions)
         for i, prediction in enumerate(predictions):
             if not prediction:
                 continue

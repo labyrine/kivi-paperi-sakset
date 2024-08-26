@@ -61,8 +61,6 @@ class RockPaperScissors:
         self.create_string(players_choice)
         self.save_player_choice()
         self.ai_selector.update_last_seven(self.last_seven)
-        self.ai_selector.get_previous_last_sevens()
-        print(self.ai_selector.last_seven_previous_5)
         self.ai_selector.select_best_ai()
         self.ai_selector.print_ai_stats()
         print(f"Mallien pisteet seuraavalle kierrokselle {self.ai_selector.scores}")
