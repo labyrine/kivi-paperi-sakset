@@ -26,7 +26,7 @@ class RockPaperScissors:
         self.draw = 0
         self.last_seven = ""
         self.trie = Trie()
-        self.ai_selector = AiSelector(5, self.trie)
+        self.ai_selector = AiSelector(15, self.trie)
 
     def start(self):
         """Function for starting the game and handling ending display of the game.
