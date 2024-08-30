@@ -54,15 +54,12 @@ class AiSelector:
         best_model: Holds the current best performing ai-model.
         last_seven_last_5: List containing last_seven strings from 5 last rounds.
         """
-
-        #self.scores = [0] * 6
         self.focus_length = focus_length
         self.trie = trie
         last_seven = ""
         self.models = [BaseAi(length, trie, last_seven)
                        for length in range(1, 7)]
-        self.stats = [{"voitot": 0, "häviöt": 0, "tasapelit": 0}
-                      for _ in self.models]
+        self.model_stats = []
         self.best_model = self.models[0]
         self.focus_scores = []
 
@@ -87,27 +84,29 @@ class AiSelector:
 
         players_actual_move = self.models[0].last_seven[-1]
         scores = [0] * 6
+        stats = [[0, 0, 0] for _ in self.models]
         predictions = [model.prediction() for model in self.models]
-        print(predictions)
+        print(f"Ennusteet seuraavalle kierrokselle jokaiselta mallilta {predictions}")
         for i, prediction in enumerate(predictions):
             if not prediction:
                 continue
             if prediction == players_actual_move:
-                pass
-                #self.stats[i]["tasapelit"] += 1
+                stats[i][2] += 1
                 #print(f"Mallin {i+1} ennustus on {prediction} eli tasapeli. Pelattu {players_actual_move}-kirjainta vastaan")
             elif (prediction == "k" and players_actual_move == "p") or (prediction == "p" and players_actual_move == "s") or (prediction == "s" and players_actual_move == "k"):
                 scores[i] -= 1
-                #self.stats[i]["häviöt"] += 1
+                stats[i][1] += 1
                 ##print(f"Mallin {i+1} ennustus on {prediction} eli voitto! Pisteet ovat nyt {self.scores[i]}. Pelattu {players_actual_move}-kirjainta vastaan")
             elif (players_actual_move == "k" and prediction == "p") or (players_actual_move == "p" and prediction == "s") or (players_actual_move == "s" and prediction == "k"):
                scores[i] += 1
-               #self.stats[i]["voitot"] += 1
+               stats[i][0] += 1
                #print(f"Mallin {i+1} ennustus on {prediction} eli voitto! Pisteet ovat nyt {self.scores[i]}. Pelattu {players_actual_move}-kirjainta vastaan")
         self.focus_scores.append(scores)
         if len(self.focus_scores) > self.focus_length:
             self.focus_scores.pop(0)
-        print(self.focus_scores)
+        self.model_stats.append(stats)
+        if len(self.model_stats) > self.focus_length:
+            self.model_stats.pop(0)
 
     def create_scores(self):
         """Function for adding up scores from previous rounds.
@@ -116,15 +115,24 @@ class AiSelector:
         for l in self.focus_scores:
             for i in range(len(summed_scores)):
                 summed_scores[i] += l[i]
-        print(summed_scores)
         return summed_scores
+    
+    def create_stats(self):
+        """Function for adding up stats from previous rounds for display.
+        """
+        summed_stats = [[0, 0, 0] for _ in range(len(self.models))]
+        for l in self.model_stats:
+            for i in range(len(summed_stats)):
+                for j in range(3):
+                    summed_stats[i][j] += l[i][j]
+        return summed_stats
 
     def select_best_ai(self):
         """Function for selecting best AI. It finds the model which has the best score by playing AI:s for number of times of focus_length.
         """
         scores = self.create_scores()
         best_model_index = scores.index(max(scores))
-        print(f"Valittu paras AI{self.models[best_model_index].length} seuraavalle kierrokselle")
+        print(f"Valittu paras malli AI{self.models[best_model_index].length} seuraavalle kierrokselle")
         self.best_model = self.models[best_model_index]
 
     def play_ai(self):
@@ -137,13 +145,14 @@ class AiSelector:
             return prediction
         ai_choice = random.choice(["k", "p", "s"])
         print(
-            f"Randomisoitu valinta, kun valitun AI:n ennustetta ei löytynyt: {ai_choice}")
+            f"Randomisoitu valinta, kun valitun mallin ennustetta ei löytynyt: {ai_choice}")
         return ai_choice
 
-    #def print_ai_stats(self):
-        #"""Function for printing the statistics of each model.
-        #"""
-        #print(f"Mallien statistiikat:")
-        #for i, model_stats in enumerate(self.stats):
-            #print(
-                #f'malli{i+1}: Voitot: {model_stats["voitot"]}, Häviöt: {model_stats["häviöt"]}, Tasapelit: {model_stats["tasapelit"]}')
+    def print_ai_stats(self):
+        """Function for printing the statistics of each model from previous focus length rounds.
+        """
+        stats = self.create_stats()
+        print(f"Mallien statistiikat viimeiseltä {self.focus_length} kierrokselta (tai vähemmmän):")
+        for i, model_stats in enumerate(stats):
+            print(
+                f'malli{i+1}: Voitot: {model_stats[0]}, Häviöt: {model_stats[1]}, Tasapelit: {model_stats[2]}')
