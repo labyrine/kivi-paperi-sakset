@@ -77,7 +77,7 @@ class AiSelector:
             model.last_seven = last_seven
 
     def update_scores(self):
-        """Function for updating scores depending on players input. Also managing that 
+        """Function for updating scores depending on players input. Also manages that 
         focus_length_scores and focus_length_stats have at most focus_length number of items.
         """
         if len(self.models[0].last_seven) < 2:
@@ -95,15 +95,35 @@ class AiSelector:
                 continue
             if prediction == players_last_move:
                 stats[i][2] += 1
-            elif (prediction == "k" and players_last_move == "p") or (prediction == "p" and players_last_move == "s") or (prediction == "s" and players_last_move == "k"):
+            elif (
+                (prediction == "k" and players_last_move == "p") or
+                (prediction == "p" and players_last_move == "s") or
+                (prediction == "s" and players_last_move == "k")
+            ):
                 scores[i] -= 1
                 stats[i][1] += 1
-            elif (players_last_move == "k" and prediction == "p") or (players_last_move == "p" and prediction == "s") or (players_last_move == "s" and prediction == "k"):
+            elif (
+                (players_last_move == "k" and prediction == "p") or
+                (players_last_move == "p" and prediction == "s") or
+                (players_last_move == "s" and prediction == "k")
+            ):
                 scores[i] += 1
                 stats[i][0] += 1
+        self.manage_scores_length(scores)
+        self.manage_stats_length(stats)
+
+    def manage_scores_length(self, scores):
+        """Function for managing that focus_length_scores has at most focus_length 
+        number of items from previous focus length rounds.
+        """
         self.focus_length_scores.append(scores)
         if len(self.focus_length_scores) > self.focus_length:
             self.focus_length_scores.pop(0)
+
+    def manage_stats_length(self, stats):
+        """Function for managing that focus_length_stats has at most focus_length 
+        number of items from previous focus length rounds.
+        """
         self.focus_length_stats.append(stats)
         if len(self.focus_length_stats) > self.focus_length:
             self.focus_length_stats.pop(0)
@@ -113,7 +133,7 @@ class AiSelector:
         """
         summed_scores = [0] * len(self.focus_length_scores[0])
         for score_list in self.focus_length_scores:
-            for i in range(len(summed_scores)):
+            for i, _ in enumerate(summed_scores):
                 summed_scores[i] += score_list[i]
         return summed_scores
 
@@ -122,9 +142,9 @@ class AiSelector:
         """
         summed_stats = [[0, 0, 0] for _ in range(len(self.models))]
         for stat_list in self.focus_length_stats:
-            for i in range(len(summed_stats)):
+            for i, stat in enumerate(summed_stats):
                 for j in range(3):
-                    summed_stats[i][j] += stat_list[i][j]
+                    stat[j] += stat_list[i][j]
         return summed_stats
 
     def select_best_ai(self):
@@ -135,7 +155,8 @@ class AiSelector:
         scores = self.create_model_scores()
         best_model_index = scores.index(max(scores))
         print(
-            f"Valittu paras malli AI{self.models[best_model_index].length} seuraavalle kierrokselle")
+            f"Valittu paras malli AI{self.models[best_model_index].length} seuraavalle kierrokselle"
+            )
         self.best_model = self.models[best_model_index]
 
     def play_ai(self):
@@ -153,11 +174,14 @@ class AiSelector:
 
     def print_model_stats(self):
         """Function for printing the statistics of each model which have been compiled 
-        from previous focus length rounds. It gets the stats by calling function create_model_stats().
+        from previous focus length rounds. It gets the stats by calling function 
+        create_model_stats().
         """
         stats = self.create_model_stats()
         print(
             f"Mallien statistiikat viimeiseltä {self.focus_length} kierrokselta (tai vähemmmän):")
         for i, model_stats in enumerate(stats):
             print(
-                f'malli{i+1}: Voitot: {model_stats[0]}, Häviöt: {model_stats[1]}, Tasapelit: {model_stats[2]}')
+                f'malli{i+1}: Voitot: {model_stats[0]}, '
+                f'Häviöt: {model_stats[1]}, '
+                f'Tasapelit: {model_stats[2]}')
