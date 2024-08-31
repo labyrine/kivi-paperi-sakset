@@ -17,8 +17,8 @@ class Trie:
     """Class which makes a trie data structure.
 
     Attributes:
-        root: Number of rounds in a game.
-        characters_index: Indicates which round of the game is currently going.
+        root: Starting point of the trie data structure.
+        characters_index: Dictionary containing information on wich letters and indexes are rock, paper and scissors.
     """
 
     def __init__(self):
