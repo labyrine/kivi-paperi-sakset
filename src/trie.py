@@ -18,7 +18,8 @@ class Trie:
 
     Attributes:
         root: Starting point of the trie data structure.
-        characters_index: Dictionary containing information on wich letters and indexes are rock, paper and scissors.
+        characters_index: Dictionary containing information on wich letters and 
+        indexes are rock, paper and scissors.
     """
 
     def __init__(self):
@@ -84,7 +85,8 @@ class Trie:
 
         Args:
            node (Node): Starting point of the trie data structure.
-           key (String): String consisting of characters k, p and/or s. Consists of contents up to the current node.
+           key (String): String consisting of characters k, p and/or s. 
+           Consists of contents up to the current node.
            trie_contents (Tuple): Consists of string and frequency for the string.
         """
 

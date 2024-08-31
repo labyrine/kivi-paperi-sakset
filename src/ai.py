@@ -15,7 +15,8 @@ class BaseAi:
         self.last_seven = last_seven
 
     def predict_ai_choice(self):
-        """Function for predicting what player might chooce on next round with frequencies and then returning counter move for that by calling counter_move function.
+        """Function for predicting what player might chooce on next round with 
+        frequencies and then returning counter move for that by calling counter_move function.
         """
         if len(self.last_seven) < self.length:
             return ""
@@ -23,7 +24,7 @@ class BaseAi:
             self.last_seven[-self.length:])
         if frequencies:
             most_frequent_player_move = max(
-                frequencies, key=lambda k: frequencies.get(k))
+                frequencies, key=frequencies.get)
             ai_choice = self.counter_move(most_frequent_player_move)
             return ai_choice
         return ""
@@ -33,10 +34,11 @@ class BaseAi:
         """
         if choice == "k":
             return "p"
-        elif choice == "p":
+        if choice == "p":
             return "s"
-        elif choice == "s":
+        if choice == "s":
             return "k"
+        raise ValueError(f"Virheellinen valinta: {choice}")
 
 
 class AiSelector:
@@ -48,8 +50,13 @@ class AiSelector:
         trie: Data structure for saving strings and substrings.
         models: List of the AI models.
         best_model: Holds the current best performing AI model.
-        focus_length_scores: A list containing focus_length number of lists. Those lists tell AI models points based on how they well they have performed on last focus lenght number of rounds.
-        focus_length_stats: A list containing focus_length number of lists to track the statistics for each model. Each of those lists contains a list of list of wins, losses and dwars from a spesific round within focus lenght number of previous rounds.
+        focus_length_scores: A list containing focus_length number of lists. Those lists tell AI 
+        models points based on how they well they have performed on last focus lenght number of 
+        rounds.
+        focus_length_stats: A list containing focus_length number of lists to track the 
+        statistics for each model.
+        Each of those lists contains a list of list of wins, losses and dwars from a spesific 
+        round within focus lenght number of previous rounds.
         """
         self.focus_length = focus_length
         self.trie = trie
@@ -70,7 +77,8 @@ class AiSelector:
             model.last_seven = last_seven
 
     def update_scores(self):
-        """Function for updating scores depending on players input. Also managing that focus_length_scores and focus_length_stats have at most focus_length number of items.
+        """Function for updating scores depending on players input. Also managing that 
+        focus_length_scores and focus_length_stats have at most focus_length number of items.
         """
         if len(self.models[0].last_seven) < 2:
             self.focus_length_scores.append([0] * 6)
@@ -120,7 +128,9 @@ class AiSelector:
         return summed_stats
 
     def select_best_ai(self):
-        """Function for selecting best AI model. It selects the model which has the biggest score within focus_length rounds. It gets the scores by calling function create_model_scores().
+        """Function for selecting best AI model. It selects the model which has the 
+        biggest score within focus_length rounds. It gets the scores by calling 
+        function create_model_scores().
         """
         scores = self.create_model_scores()
         best_model_index = scores.index(max(scores))
@@ -142,7 +152,8 @@ class AiSelector:
         return ai_choice
 
     def print_model_stats(self):
-        """Function for printing the statistics of each model which have been compiled from previous focus length rounds. It gets the stats by calling function create_model_stats().
+        """Function for printing the statistics of each model which have been compiled 
+        from previous focus length rounds. It gets the stats by calling function create_model_stats().
         """
         stats = self.create_model_stats()
         print(

@@ -13,7 +13,8 @@ class RockPaperScissors:
         draw: Number of draws.
         last_seven: String for storing the last seven of players choices.
         trie: Data structure for saving strings and substrings.
-        ai_selector: Class that compares different Ai models performance and chooses most suitable one.
+        ai_selector: Class that compares different Ai models performance and 
+        chooses most suitable one.
     """
 
     def __init__(self):
@@ -78,8 +79,7 @@ class RockPaperScissors:
                 "Valitse kivi (k), paperi (p) tai sakset (s)")
             if players_choice in ['k', 'p', 's'] and len(players_choice) == 1:
                 break
-            else:
-                print("Syötä vain kirjain k, p tai s")
+            print("Syötä vain kirjain k, p tai s")
 
         return players_choice
 
@@ -96,7 +96,8 @@ class RockPaperScissors:
             self.last_seven = self.last_seven[1:] + players_choice
 
     def save_player_choice(self):
-        """Function for saving every substring of the string to trie if string is at least the lenght of 2 but not longer than 7.
+        """Function for saving every substring of the string to trie if string is 
+        at least the lenght of 2 but not longer than 7.
         """
 
         if len(self.last_seven) >= 2:
@@ -115,15 +116,14 @@ class RockPaperScissors:
         if players_choice == ai_choice:
             self.draw += 1
             return 'Tasapeli'
-        elif players_choice == "k" and ai_choice == "s":
+        if players_choice == "k" and ai_choice == "s":
             self.player_points += 1
             return 'Sinä voitit'
-        elif players_choice == "s" and ai_choice == "p":
+        if players_choice == "s" and ai_choice == "p":
             self.player_points += 1
             return 'Sinä voitit'
-        elif players_choice == "p" and ai_choice == "k":
+        if players_choice == "p" and ai_choice == "k":
             self.player_points += 1
             return 'Sinä voitit'
-        else:
-            self.ai_points += 1
-            return 'Pelikone voitti'
+        self.ai_points += 1
+        return 'Pelikone voitti'
