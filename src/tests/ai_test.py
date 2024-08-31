@@ -21,15 +21,15 @@ class TestBaseAi(unittest.TestCase):
 
     def test_prediction_kps(self):
         ai = BaseAi(self.length, self.trie_mock, self.last_seven1)
-        self.assertEqual(ai.prediction(), "k")
+        self.assertEqual(ai.predict_ai_choice(), "k")
 
     def test_prediction_short(self):
         ai = BaseAi(self.length, self.trie_mock, self.last_seven2)
-        self.assertEqual(ai.prediction(), "")
+        self.assertEqual(ai.predict_ai_choice(), "")
 
     def test_prediction_empty(self):
         ai = BaseAi(2, self.trie_mock, self.last_seven1)
-        self.assertEqual(ai.prediction(), "")
+        self.assertEqual(ai.predict_ai_choice(), "")
 
     def test_counter_move(self):
         ai = BaseAi(self.length, self.trie_mock, self.last_seven1)
@@ -59,26 +59,20 @@ class TestAiSelector(unittest.TestCase):
     @patch('ai.BaseAi')
     def test_update_scores_p(self, MockBaseAi):
         mock_base_ai_instance = MagicMock()
-        mock_base_ai_instance.prediction.side_effect = [
+        mock_base_ai_instance.predict_ai_choice.side_effect = [
             "k", "p", "s", "k", "p", "s"]
         MockBaseAi.side_effect = [mock_base_ai_instance for _ in range(6)]
-
+        
         ai_selector = AiSelector(5, self.trie_mock)
-        ai_selector.update_scores("p")
+        ai_selector.update_last_seven("kpppssp")
+        ai_selector.update_scores()
 
-        valid_scores_p = [-1, 0, 1, -1, 0, 1]
-        valid_stats_p = [
-            {"tasapelit": 0, "voitot": 0, "häviöt": 1},
-            {"tasapelit": 1, "voitot": 0, "häviöt": 0},
-            {"tasapelit": 0, "voitot": 1, "häviöt": 0},
-            {"tasapelit": 0, "voitot": 0, "häviöt": 1},
-            {"tasapelit": 1, "voitot": 0, "häviöt": 0},
-            {"tasapelit": 0, "voitot": 1, "häviöt": 0}
-        ]
+        valid_scores = [-1, 0, 1, -1, 0, 1]
+        valid_stats = [[[0, 1, 0], [0, 0, 1], [
+            1, 0, 0], [0, 1, 0], [0, 0, 1], [1, 0, 0]]]
 
-        for i in range(6):
-            self.assertEqual(ai_selector.scores[i], valid_scores_p[i])
-            self.assertEqual(ai_selector.stats[i], valid_stats_p[i])
+        self.assertEqual(ai_selector.focus_length_scores[0], valid_scores)
+        self.assertEqual(ai_selector.focus_length_stats, valid_stats)
 
     @patch('ai.BaseAi')
     def test_select_best_ai_valid(self, MockBaseAi):
@@ -87,9 +81,8 @@ class TestAiSelector(unittest.TestCase):
 
         ai_selector = AiSelector(5, self.trie_mock)
 
-        for i, model in enumerate(ai_selector.models):
-            model.last_seven = ['k', 'p', 's', 'k', 'p', 's', 'k']
-            ai_selector.scores[i] = i
+        for i in range(6):
+            ai_selector.focus_length_scores.append([i])
 
-        best_ai = ai_selector.select_best_ai()
-        self.assertEqual(best_ai, ai_selector.models[5])
+        ai_selector.select_best_ai()
+        self.assertEqual(ai_selector.best_model, ai_selector.models[5])

@@ -62,15 +62,20 @@ class TestIntegration(unittest.TestCase):
     def test_model_selection_and_choice(self):
 
         self.ai_selector = AiSelector(5, self.trie)
-        selected_model = self.ai_selector.select_best_ai()
-        self.assertEqual(selected_model.length, 1)
-        self.assertNotEqual(selected_model.length, 5)
+        self.ai_selector.focus_length_scores = [
+            [0, 0, 0, 0, 0, 0] for _ in range(5)
+        ]
+        
+        self.ai_selector.focus_length_scores[0][0] = 2
+        self.ai_selector.select_best_ai()
+        self.assertEqual(self.ai_selector.best_model.length, 1)
+        self.assertNotEqual(self.ai_selector.best_model.length, 5)
 
     def test_model_choice(self):
         last_seven = ''.join(self.s1[-7:])
         model = BaseAi(1, self.trie, last_seven)
 
-        choice = model.prediction()
+        choice = model.predict_ai_choice()
         self.assertEqual(choice, "s")
         self.assertNotEqual(choice, "k")
 
