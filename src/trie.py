@@ -36,24 +36,6 @@ class Trie:
         """
         return self.characters_index[c]
 
-    def search(self, key):
-        """Function for searchin a string.
-
-        Args:
-            key (String): String consisting of characters k, p and/or s.
-        """
-
-        if self.root is None:
-            return 0
-
-        node = self.root
-        for c in key:
-            i = self._character_to_index(c)
-            if node.children[i] is None:
-                return 0
-            node = node.children[i]
-        return node.frequency
-
     def add(self, key):
         """Function for saving string to the data structure.
 
@@ -96,56 +78,6 @@ class Trie:
             if child is not None:
                 frequencies[characters[i]] = child.frequency
         return frequencies
-
-    def delete(self, key):
-        """Function for deleting a string from the data structure which calls a another function.
-
-        Args:
-            key (String): String consisting of characters k, p and/or s.
-        """
-
-        if self.root is not None:
-            self.root = self._delete_help_function(self.root, key, 0)
-
-    def _delete_help_function(self, node, key, depth):
-        """Help function for deleting a string from the data structure by using recursion.
-
-        Args:
-            node (Node): Starting point of the trie data structure.
-            key (String): String consisting of characters k, p and/or s.
-            depth (Integer): The current depth in the trie data structure.
-        """
-
-        if node is None:
-            return None
-
-        if depth == len(key):
-            if node.frequency > 0:
-                node.frequency -= 1
-
-            if node.frequency == 0:
-                all_are_none = True
-                for child in node.children:
-                    if child is not None:
-                        all_are_none = False
-                        break
-                if all_are_none:
-                    return None
-            return node
-
-        index = self._character_to_index(key[depth])
-        node.children[index] = self._delete_help_function(
-            node.children[index], key, depth + 1)
-
-        if node.frequency == 0:
-            all_are_none = True
-            for child in node.children:
-                if child is not None:
-                    all_are_none = False
-                    break
-            if all_are_none:
-                return None
-        return node
 
     def _help_function_get_display(self, node, key, trie_contents):
         """Help function for collecting strings and frequencies of trie by using recursion.
