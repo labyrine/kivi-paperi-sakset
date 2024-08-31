@@ -156,7 +156,7 @@ class AiSelector:
         best_model_index = scores.index(max(scores))
         print(
             f"Valittu paras malli AI{self.models[best_model_index].length} seuraavalle kierrokselle"
-            )
+        )
         self.best_model = self.models[best_model_index]
 
     def play_ai(self):
