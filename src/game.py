@@ -13,7 +13,7 @@ class RockPaperScissors:
         draw: Number of draws.
         last_seven: String for storing the last seven of players choices.
         trie: Data structure for saving strings and substrings.
-        ai_selector: Thing that compares different Ai-models performance and chooces most suitable one.
+        ai_selector: Class that compares different Ai models performance and chooses most suitable one.
     """
 
     def __init__(self):
@@ -63,8 +63,9 @@ class RockPaperScissors:
         self.ai_selector.update_last_seven(self.last_seven)
         self.ai_selector.update_scores()
         self.ai_selector.select_best_ai()
-        self.ai_selector.print_ai_stats()
-        #print(f"Mallien pisteet seuraavalle kierrokselle {self.ai_selector.scores}")
+        self.ai_selector.print_model_stats()
+        print(
+            f"Mallien pisteet seuraavalle kierrokselle {self.ai_selector.create_model_scores()}")
         print()
         return True
 
@@ -86,7 +87,7 @@ class RockPaperScissors:
         """Function for updatings string last_seven.
 
         Args:
-            players_choice (String): Players choice for round.
+            players_choice: String containing players choice for round.
         """
 
         if len(self.last_seven) < 7:
@@ -107,8 +108,8 @@ class RockPaperScissors:
         """Function for figuring out who won the round.
 
         Args:
-            players_choice (String): Players choice for round.
-            ai_choice (String): Machines choice for round.
+            players_choice: String containing players choice for round.
+            ai_choice: String containing machines choice for round.
         """
 
         if players_choice == ai_choice:
