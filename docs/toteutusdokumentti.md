@@ -32,7 +32,7 @@ Trien kaikki operaatiot tapahtuvat ajassa O(n). Näihin operaatioihin kuuluvat l
 
 ### Tuttu 1
 
-### Pelin 1 tulokset
+#### Pelin 1 tulokset
 Pelaaja voitti 20 kertaa
 
 Pelikone voitti 15 kertaa
@@ -40,6 +40,16 @@ Pelikone voitti 15 kertaa
 Tasapeli tapahtui 15 kertaa
 
 AI:n voittoprosentti: 30.0 %
+
+#### Pelin 2 tulokset
+
+Pelaaja voitti 17 kertaa
+
+Pelikone voitti 17 kertaa
+
+Tasapeli tapahtui 16 kertaa
+
+AI:n voittoprosentti: 34.0 %
 
 ### Tuttu 2
 
