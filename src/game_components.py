@@ -6,6 +6,7 @@ class ScoreManager:
         ai_points: Number of machine/ai wins.
         draw: Number of draws.
     """
+
     def __init__(self):
         self.player_points = 0
         self.ai_points = 0
@@ -32,7 +33,8 @@ class ScoreManager:
             return 'Sinä voitit'
         self.ai_points += 1
         return 'Pelikone voitti'
-    
+
+
 class LastSevenManager:
     """Class which manages history of palyers choices from 7 previous rounds.
 
@@ -40,6 +42,7 @@ class LastSevenManager:
         last_seven: String for storing the last seven of players choices.
         trie: Data structure for saving strings and substrings.
     """
+
     def __init__(self, trie):
         self.last_seven = ""
         self.trie = trie

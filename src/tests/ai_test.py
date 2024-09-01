@@ -41,6 +41,7 @@ class TestBaseAi(unittest.TestCase):
             ai.counter_move("x")
         self.assertEqual(str(context.exception), "Virheellinen valinta: x")
 
+
 class TestAiSelector(unittest.TestCase):
     def setUp(self):
         self.length = 3
@@ -65,7 +66,7 @@ class TestAiSelector(unittest.TestCase):
         mock_base_ai_instance.predict_ai_choice.side_effect = [
             "k", "p", "s", "k", "p", "s"]
         MockBaseAi.side_effect = [mock_base_ai_instance for _ in range(6)]
-        
+
         ai_selector = AiSelector(5, self.trie_mock)
         ai_selector.update_last_seven("kpppssp")
         ai_selector.update_scores()
@@ -83,13 +84,14 @@ class TestAiSelector(unittest.TestCase):
         mock_base_ai_instance.predict_ai_choice.side_effect = [
             "s", "s", "s", "s", "s", "s"]
         MockBaseAi.side_effect = [mock_base_ai_instance for _ in range(6)]
-        
+
         ai_selector = AiSelector(5, self.trie_mock)
         ai_selector.update_last_seven("kpppssp")
         ai_selector.update_scores()
 
         valid_scores = [1, 1, 1, 1, 1, 1]
-        valid_stats = [[[1, 0, 0], [1, 0, 0], [1, 0, 0], [1, 0, 0], [1, 0, 0], [1, 0, 0]]]
+        valid_stats = [[[1, 0, 0], [1, 0, 0], [
+            1, 0, 0], [1, 0, 0], [1, 0, 0], [1, 0, 0]]]
 
         self.assertEqual(ai_selector.focus_length_scores[0], valid_scores)
         self.assertEqual(ai_selector.focus_length_stats, valid_stats)
@@ -112,11 +114,11 @@ class TestAiSelector(unittest.TestCase):
         mock_base_ai_instance = MagicMock()
         mock_base_ai_instance.predict_ai_choice.return_value = "p"
         MockBaseAi.return_value = mock_base_ai_instance
-    
+
         ai_selector = AiSelector(5, self.trie_mock)
         ai_selector.best_model = mock_base_ai_instance
         ai_choice = ai_selector.play_ai()
-    
+
         self.assertEqual(ai_choice, "p")
 
     @patch('ai.BaseAi')
