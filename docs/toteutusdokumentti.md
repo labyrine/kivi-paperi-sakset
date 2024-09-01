@@ -51,6 +51,16 @@ Tasapeli tapahtui 16 kertaa
 
 AI:n voittoprosentti: 34.0 %
 
+#### Pelin 3 tulokset
+
+Pelaaja voitti 20 kertaa
+
+Pelikone voitti 12 kertaa
+
+Tasapeli tapahtui 18 kertaa
+
+AI:n voittoprosentti: 24.0 %
+
 ### Tuttu 2
 
 #### Pelin 1 tulokset
