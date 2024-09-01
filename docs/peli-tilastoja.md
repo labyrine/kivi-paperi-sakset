@@ -6,7 +6,7 @@ Toiselle taas on hänen pelinsä kulku ilman muita lisätietoja.
 
 ## Pelaaja 1
 
-### Kierros 1
+### Peli 1
 Pelissä on 50 kierrosta
 Kierros: 1
 Valitse kivi (k), paperi (p) tai sakset (s)s
@@ -863,7 +863,7 @@ Pelikone voitti 15 kertaa
 Tasapeli tapahtui 15 kertaa
 AI:n voittoprosentti: 30.0 %
 
-### Kierros 2
+### Peli 2
 Tervetuloa peliin
 Pelissä on 50 kierrosta
 Kierros: 1
@@ -1721,7 +1721,7 @@ Pelikone voitti 17 kertaa
 Tasapeli tapahtui 16 kertaa
 AI:n voittoprosentti: 34.0 %
 
-### Kierros 3
+### Peli 3
 
 Pelissä on 50 kierrosta
 Kierros: 1
@@ -2580,3 +2580,933 @@ Tasapeli tapahtui 18 kertaa
 AI:n voittoprosentti: 24.0 %
 
 ## Pelaaja 2 
+
+### Peli 1
+
+Tervetuloa peliin
+Pelissä on 50 kierrosta
+Kierros: 1
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi k
+Tasapeli
+
+Kierros: 2
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi k
+Pelikone voitti
+
+Kierros: 3
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi k
+Pelikone voitti
+
+Kierros: 4
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi k
+Tasapeli
+
+Kierros: 5
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi k
+Sinä voitit
+
+Kierros: 6
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi p
+Tasapeli
+
+Kierros: 7
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi s
+Pelikone voitti
+
+Kierros: 8
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi s
+Sinä voitit
+
+Kierros: 9
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi s
+Tasapeli
+
+Kierros: 10
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi k
+Pelikone voitti
+
+Kierros: 11
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi k
+Pelikone voitti
+
+Kierros: 12
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi k
+Pelikone voitti
+
+Kierros: 13
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi k
+Sinä voitit
+
+Kierros: 14
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi s
+Pelikone voitti
+
+Kierros: 15
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi s
+Tasapeli
+
+Kierros: 16
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi k
+Tasapeli
+
+Kierros: 17
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi k
+Tasapeli
+
+Kierros: 18
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi k
+Sinä voitit
+
+Kierros: 19
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi s
+Tasapeli
+
+Kierros: 20
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi k
+Tasapeli
+
+Kierros: 21
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi s
+Tasapeli
+
+Kierros: 22
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi k
+Sinä voitit
+
+Kierros: 23
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi s
+Tasapeli
+
+Kierros: 24
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi k
+Tasapeli
+
+Kierros: 25
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi k
+Pelikone voitti
+
+Kierros: 26
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi p
+Tasapeli
+
+Kierros: 27
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi s
+Pelikone voitti
+
+Kierros: 28
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi s
+Tasapeli
+
+Kierros: 29
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi p
+Pelikone voitti
+
+Kierros: 30
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi k
+Pelikone voitti
+
+Kierros: 31
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi p
+Tasapeli
+
+Kierros: 32
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi s
+Tasapeli
+
+Kierros: 33
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi p
+Pelikone voitti
+
+Kierros: 34
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi k
+Pelikone voitti
+
+Kierros: 35
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi s
+Tasapeli
+
+Kierros: 36
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi k
+Sinä voitit
+
+Kierros: 37
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi s
+Pelikone voitti
+
+Kierros: 38
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi k
+Tasapeli
+
+Kierros: 39
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi k
+Pelikone voitti
+
+Kierros: 40
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi s
+Sinä voitit
+
+Kierros: 41
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi k
+Tasapeli
+
+Kierros: 42
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi s
+Pelikone voitti
+
+Kierros: 43
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi p
+Sinä voitit
+
+Kierros: 44
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi p
+Pelikone voitti
+
+Kierros: 45
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi k
+Sinä voitit
+
+Kierros: 46
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi k
+Pelikone voitti
+
+Kierros: 47
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi s
+Tasapeli
+
+Kierros: 48
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi k
+Tasapeli
+
+Kierros: 49
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi s
+Tasapeli
+
+Kierros: 50
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi p
+Tasapeli
+
+Peli päättyi
+Pelaaja voitti 9 kertaa
+Pelikone voitti 18 kertaa
+Tasapeli tapahtui 23 kertaa
+AI:n voittoprosentti: 36.0 %
+
+### Peli 2
+
+Tervetuloa peliin
+Pelissä on 50 kierrosta
+Kierros: 1
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi p
+Sinä voitit
+
+Kierros: 2
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi k
+Sinä voitit
+
+Kierros: 3
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi p
+Sinä voitit
+
+Kierros: 4
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi s
+Sinä voitit
+
+Kierros: 5
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi k
+Pelikone voitti
+
+Kierros: 6
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi p
+Tasapeli
+
+Kierros: 7
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi s
+Sinä voitit
+
+Kierros: 8
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi k
+Pelikone voitti
+
+Kierros: 9
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi s
+Sinä voitit
+
+Kierros: 10
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi s
+Pelikone voitti
+
+Kierros: 11
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi k
+Sinä voitit
+
+Kierros: 12
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi k
+Pelikone voitti
+
+Kierros: 13
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi k
+Pelikone voitti
+
+Kierros: 14
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi s
+Sinä voitit
+
+Kierros: 15
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi p
+Tasapeli
+
+Kierros: 16
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi s
+Pelikone voitti
+
+Kierros: 17
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi k
+Pelikone voitti
+
+Kierros: 18
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi k
+Tasapeli
+
+Kierros: 19
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi k
+Pelikone voitti
+
+Kierros: 20
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi s
+Pelikone voitti
+
+Kierros: 21
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi p
+Sinä voitit
+
+Kierros: 22
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi p
+Tasapeli
+
+Kierros: 23
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi p
+Pelikone voitti
+
+Kierros: 24
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi p
+Tasapeli
+
+Kierros: 25
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi s
+Tasapeli
+
+Kierros: 26
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi p
+Sinä voitit
+
+Kierros: 27
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi p
+Tasapeli
+
+Kierros: 28
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi k
+Tasapeli
+
+Kierros: 29
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi k
+Tasapeli
+
+Kierros: 30
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi k
+Pelikone voitti
+
+Kierros: 31
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi s
+Sinä voitit
+
+Kierros: 32
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi k
+Pelikone voitti
+
+Kierros: 33
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi p
+Pelikone voitti
+
+Kierros: 34
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi s
+Pelikone voitti
+
+Kierros: 35
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi s
+Pelikone voitti
+
+Kierros: 36
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi k
+Pelikone voitti
+
+Kierros: 37
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi k
+Tasapeli
+
+Kierros: 38
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi k
+Tasapeli
+
+Kierros: 39
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi k
+Pelikone voitti
+
+Kierros: 40
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi s
+Pelikone voitti
+
+Kierros: 41
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi k
+Tasapeli
+
+Kierros: 42
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi p
+Pelikone voitti
+
+Kierros: 43
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi k
+Pelikone voitti
+
+Kierros: 44
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi s
+Sinä voitit
+
+Kierros: 45
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi k
+Tasapeli
+
+Kierros: 46
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi k
+Sinä voitit
+
+Kierros: 47
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi k
+Sinä voitit
+
+Kierros: 48
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi k
+Pelikone voitti
+
+Kierros: 49
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi s
+Sinä voitit
+
+Kierros: 50
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi k
+Tasapeli
+
+Peli päättyi
+Pelaaja voitti 15 kertaa
+Pelikone voitti 21 kertaa
+Tasapeli tapahtui 14 kertaa
+AI:n voittoprosentti: 42.0 %
+
+### Peli 3
+
+Tervetuloa peliin
+Pelissä on 50 kierrosta
+Kierros: 1
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi p
+Pelikone voitti
+
+Kierros: 2
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi p
+Tasapeli
+
+Kierros: 3
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi k
+Sinä voitit
+
+Kierros: 4
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi s
+Tasapeli
+
+Kierros: 5
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi p
+Sinä voitit
+
+Kierros: 6
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi k
+Tasapeli
+
+Kierros: 7
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi s
+Pelikone voitti
+
+Kierros: 8
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi s
+Sinä voitit
+
+Kierros: 9
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi s
+Tasapeli
+
+Kierros: 10
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi s
+Pelikone voitti
+
+Kierros: 11
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi p
+Sinä voitit
+
+Kierros: 12
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi k
+Tasapeli
+
+Kierros: 13
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi s
+Tasapeli
+
+Kierros: 14
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi s
+Pelikone voitti
+
+Kierros: 15
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi k
+Tasapeli
+
+Kierros: 16
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi k
+Pelikone voitti
+
+Kierros: 17
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi s
+Tasapeli
+
+Kierros: 18
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi s
+Sinä voitit
+
+Kierros: 19
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi p
+Pelikone voitti
+
+Kierros: 20
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi s
+Pelikone voitti
+
+Kierros: 21
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi k
+Pelikone voitti
+
+Kierros: 22
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi p
+Pelikone voitti
+
+Kierros: 23
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi p
+Pelikone voitti
+
+Kierros: 24
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi s
+Tasapeli
+
+Kierros: 25
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi s
+Pelikone voitti
+
+Kierros: 26
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi p
+Tasapeli
+
+Kierros: 27
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi p
+Pelikone voitti
+
+Kierros: 28
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi p
+Sinä voitit
+
+Kierros: 29
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi k
+Pelikone voitti
+
+Kierros: 30
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi p
+Pelikone voitti
+
+Kierros: 31
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi p
+Sinä voitit
+
+Kierros: 32
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi k
+Tasapeli
+
+Kierros: 33
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi p
+Pelikone voitti
+
+Kierros: 34
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi p
+Tasapeli
+
+Kierros: 35
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi k
+Sinä voitit
+
+Kierros: 36
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi p
+Sinä voitit
+
+Kierros: 37
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi s
+Tasapeli
+
+Kierros: 38
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi p
+Sinä voitit
+
+Kierros: 39
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi p
+Pelikone voitti
+
+Kierros: 40
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi k
+Tasapeli
+
+Kierros: 41
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi s
+Pelikone voitti
+
+Kierros: 42
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi k
+Sinä voitit
+
+Kierros: 43
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi s
+Tasapeli
+
+Kierros: 44
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi k
+Pelikone voitti
+
+Kierros: 45
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi k
+Tasapeli
+
+Kierros: 46
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi s
+Tasapeli
+
+Kierros: 47
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi k
+Pelikone voitti
+
+Kierros: 48
+Valitse kivi (k), paperi (p) tai sakset (s)s
+Sinä valitsit s
+Pelikone valitsi s
+Tasapeli
+
+Kierros: 49
+Valitse kivi (k), paperi (p) tai sakset (s)p
+Sinä valitsit p
+Pelikone valitsi s
+Pelikone voitti
+
+Kierros: 50
+Valitse kivi (k), paperi (p) tai sakset (s)k
+Sinä valitsit k
+Pelikone valitsi k
+Tasapeli
+
+Peli päättyi
+Pelaaja voitti 11 kertaa
+Pelikone voitti 20 kertaa
+Tasapeli tapahtui 19 kertaa
+AI:n voittoprosentti: 40.0 %
