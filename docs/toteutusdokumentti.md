@@ -26,6 +26,7 @@ AiSelector (src/ai.py)
 
 ### Saavutetut aika- ja tilavaativuudet
 
+Trien kaikki operaatiot kuten lisäys, frekvenssien haku ja koko sisällön hakeminen tapahtuvat ajassa O(n). Tässä  n on käsiteltävän sanan pituus. Lähteiden mukaan trien haku vie aikaa pahimmillaan O(n) ja se aikavaativuus toteutuu työssäni.
 
 ### Tilastoja peleistä
 
@@ -37,6 +38,8 @@ AiSelector (src/ai.py)
 - Työlle voisi luoda grafiikat, niin sitä voisi olla mukavampi käyttää.
 
 ### Laajojen kielimallien käyttö
+
+Käytin ChatGPT:tä projektin alussa auttamaan minua miettimään, miten haluaisin jakaa toiminnallisuuksia eri kansioihin. Projektia tehdessä olen käyttänyt sitä välillä selittämään minulle error-viestejä. Käytin sitä avuksi debuggausta varten käyttämieni tulostus-komentojen luonnissa onnistuneesti sekä epäonnistuneesti. Eli yritin silloin nopeuttaa yksinkretaisten koodinpätkien kirjoittamista. Käytin sitä myös RockPaperScissors luokan refaktorointiin pienempiin luokkiin: LastSevenManager ja ScoreManager.
 
 ### Lähteet
 - [Trie](https://en.wikipedia.org/wiki/Trie)
