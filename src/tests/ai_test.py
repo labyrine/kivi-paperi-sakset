@@ -1,4 +1,3 @@
-import random
 import unittest
 from unittest.mock import patch, MagicMock
 from ai import BaseAi, AiSelector
