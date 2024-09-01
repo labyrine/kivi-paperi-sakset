@@ -8,13 +8,11 @@ class RockPaperScissors:
     Attributes:
         number_of_rounds: Number of rounds in a game.
         current_round: Indicates which round of the game is currently going.
-        player_points: Number of player wins.
-        ai_points: Number of machine/ai wins.
-        draw: Number of draws.
-        last_seven: String for storing the last seven of players choices.
+        score_manager: Class for managing player's and AI's scores.
         trie: Data structure for saving strings and substrings.
         ai_selector: Class that compares different Ai models performance and 
         chooses most suitable one.
+        last_seven_manager: Class for history of palyers choices from 7 previous rounds.
     """
 
     def __init__(self):
@@ -22,12 +20,10 @@ class RockPaperScissors:
         """
         self.number_of_rounds = 50
         self.curret_round = 0
-        self.player_points = 0
-        self.ai_points = 0
-        self.draw = 0
-        self.last_seven = ""
+        self.score_manager = ScoreManager()
         self.trie = Trie()
         self.ai_selector = AiSelector(15, self.trie)
+        self.last_seven_manager = LastSevenManager(self.trie)
 
     def start(self):
         """Function for starting the game and handling ending display of the game.
@@ -40,11 +36,11 @@ class RockPaperScissors:
                 break
 
         print("Peli päättyi")
-        print("Pelaaja voitti", self.player_points, "kertaa")
-        print("Pelikone voitti", self.ai_points, "kertaa")
-        print("Tasapeli tapahtui", self.draw, "kertaa")
+        print("Pelaaja voitti", self.score_manager.player_points, "kertaa")
+        print("Pelikone voitti", self.score_manager.ai_points, "kertaa")
+        print("Tasapeli tapahtui", self.score_manager.draw, "kertaa")
         print("AI:n voittoprosentti:", round(
-            (self.ai_points / self.number_of_rounds) * 100, 1), "%")
+            (self.score_manager.ai_points / self.number_of_rounds) * 100, 1), "%")
         print()
 
     def round(self):
@@ -55,13 +51,13 @@ class RockPaperScissors:
         print("Kierros:", self.curret_round)
         players_choice = self.get_player_choice()
         ai_choice = self.ai_selector.play_ai()
-        result = self.who_won(players_choice, ai_choice)
+        result = self.score_manager.who_won(players_choice, ai_choice)
         print("Sinä valitsit", players_choice)
         print("Pelikone valitsi", ai_choice)
         print(result)
-        self.create_string(players_choice)
-        self.save_player_choice()
-        self.ai_selector.update_last_seven(self.last_seven)
+        self.last_seven_manager.update_string(players_choice)
+        self.last_seven_manager.save_player_choice_to_trie()
+        self.ai_selector.update_last_seven(self.last_seven_manager.last_seven)
         self.ai_selector.update_scores()
         self.ai_selector.select_best_ai()
         self.ai_selector.print_model_stats()
@@ -83,27 +79,18 @@ class RockPaperScissors:
 
         return players_choice
 
-    def create_string(self, players_choice):
-        """Function for updatings string last_seven.
+class ScoreManager:
+    """Class which manages player's and AI's scores.
 
-        Args:
-            players_choice: String containing players choice for round.
-        """
-
-        if len(self.last_seven) < 7:
-            self.last_seven += players_choice
-        else:
-            self.last_seven = self.last_seven[1:] + players_choice
-
-    def save_player_choice(self):
-        """Function for saving every substring of the string to trie if string is 
-        at least the lenght of 2 but not longer than 7.
-        """
-
-        if len(self.last_seven) >= 2:
-            for length in range(2, len(self.last_seven) + 1):
-                substring = self.last_seven[-length:]
-                self.trie.add(substring)
+    Attributes:
+        player_points: Number of player wins.
+        ai_points: Number of machine/ai wins.
+        draw: Number of draws.
+    """
+    def __init__(self):
+        self.player_points = 0
+        self.ai_points = 0
+        self.draw = 0
 
     def who_won(self, players_choice, ai_choice):
         """Function for figuring out who won the round.
@@ -112,7 +99,6 @@ class RockPaperScissors:
             players_choice: String containing players choice for round.
             ai_choice: String containing machines choice for round.
         """
-
         if players_choice == ai_choice:
             self.draw += 1
             return 'Tasapeli'
@@ -127,3 +113,34 @@ class RockPaperScissors:
             return 'Sinä voitit'
         self.ai_points += 1
         return 'Pelikone voitti'
+    
+class LastSevenManager:
+    """Class which manages history of palyers choices from 7 previous rounds.
+
+    Attributes:
+        last_seven: String for storing the last seven of players choices.
+        trie: Data structure for saving strings and substrings.
+    """
+    def __init__(self, trie):
+        self.last_seven = ""
+        self.trie = trie
+
+    def update_string(self, players_choice):
+        """Function for updatings string last_seven.
+
+        Args:
+            players_choice: String containing players choice for round.
+        """
+        if len(self.last_seven) < 7:
+            self.last_seven += players_choice
+        else:
+            self.last_seven = self.last_seven[1:] + players_choice
+
+    def save_player_choice_to_trie(self):
+        """Function for saving every substring of the string to trie if string is 
+        at least the lenght of 2 but not longer than 7.
+        """
+        if len(self.last_seven) >= 2:
+            for length in range(2, len(self.last_seven) + 1):
+                substring = self.last_seven[-length:]
+                self.trie.add(substring)
