@@ -6,6 +6,8 @@ Testaamiseen on käytetty unittest-kehystä.
 
 Simuloidaan peliä viidentoista kieroksen ajalta, kun focus_length on 5. Jokaisella kierroksella katsotaan, että trie rakenne palauttaa oikein sisältönsä ja sen perusteella valitaan parhaiten suoriutunut malli. Lopuksi verrataan, että nämä parhaiten suoriutuneet mallit ovat palauttaneet oikein seuraavan valintansa, mitä pelata. Tässä pitää kannattaa huomata, että paras malli ja sen valinta valitaan kierroksen lopuksi valmiiksi seuraavalle kierrokselle. 
 
+Käytin käyttäjän syötteenä kierroksille s, k, k, p, s, s, s, p, p, s, s, k, s, s, s, mikä johti siihen, että valitut mallit olivat Ai1 tai Ai2. Lisäksi mallit eivät voineet arvata mitään kuudella kierroksella (mukaan lukien ensimmäinen kierros, jolloin malleilla ei ole dataa tehdä päätöksiä)
+
 ## Yksikkötestauksen kattavuus
 
 ![Screenshot from 2024-09-01 19-45-06](https://github.com/user-attachments/assets/b4574397-6df7-4bce-8c98-05263796edc4)
