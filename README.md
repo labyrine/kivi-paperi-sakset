@@ -10,7 +10,7 @@
 
 - [Testausdokumentti](https://github.com/labyrine/kivi-paperi-sakset/blob/main/docs/testaus.md)
 
-- Toteutusdokumentti (Tulossa)
+- [Toteutusdokumentti](https://github.com/labyrine/kivi-paperi-sakset/blob/main/docs/toteutusdokumentti.md)
 
 ### Viikkoraportit
 
