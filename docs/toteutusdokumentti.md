@@ -16,17 +16,17 @@ Node (src/trie.py)
 - Kuvastaa Trie-tietorakenteen solmua. Jokaisella solmulla voi olla kolme lasta (yksi jokaiselle merkille: kivi, paperi, sakset) ja laskuri (frekvenssit), joka tallentaa kuinka monta kertaa tietty merkkijono on tullut vastaan.
 
 Trie (src/trie.py)
-- Trie-tietorakenne, joka tallentaa pelaajan aiemmat valinnat. Trie-rakennetta käytetään löytämään seuraavan merkin esiintymistodennäköisyydet, jotka perustuvat pelaajan aiempiin valintoihin.
+- Trie-tietorakenne, joka tallentaa pelaajan aiemmat valinnat. Trie-rakennetta käytetään löytämään seuraavan merkin esiintymistodennäköisyydet, jotka perustuvat pelaajan aiempiin valintoihin. 
 
 BaseAi (src/ai.py)
-- Pohja luoda AI-malleja, jotka käyttävät Trie-rakennetta ennustamaan seuraavan pelaajan valinnan ja valitsevat ennustuksen voittavan merkin (k, p tai s).
+- Pohja luoda AI-malleja, jotka käyttävät Trie-rakennetta ennustamaan seuraavan pelaajan valinnan ja valitsevat ennustuksen voittavan merkin (k, p tai s). Käytän siis Markovin ketjuja. Niissä perusperiaate on, että tuleva tila riippuu vain nykyisestä tilasta, eikä aikaisemmista tiloista. Siten nykyinen tila on mallista riippuen määräytynyt 1-6 viimeisimmän pelaajan syöttämää merkkin mukaan ja tuleva tila ennustetaan Trie-rakenteen avulla.
 
 AiSelector (src/ai.py)
 - Valitsee parhaan tekoälymallin kuudesta eri vaihtoehdosta, joista jokainen analysoi eri pituisia pelaajan valintahistorioita. Nämä ovat siis 1-6 viimeistä siirtoa. Seuraavalle kierrokselle valitaan se malli, joka on menestynyt parhaiten viimeisten kierroksien aikana. Tämä kierrosten määrä on anntettu focus_lenght muuttujassa ja se on tällä hetkellä ohjelmassa 15.
 
 ## Saavutetut aika- ja tilavaativuudet
 
-Trien kaikki operaatiot kuten lisäys, frekvenssien haku ja koko sisällön hakeminen tapahtuvat ajassa O(n). Tässä  n on käsiteltävän sanan pituus. Lähteiden mukaan trien haku vie aikaa pahimmillaan O(n) ja se aikavaativuus toteutuu työssäni.
+Trien kaikki operaatiot tapahtuvat ajassa O(n). Näihin operaatioihin kuuluvat lisäys, frekvenssien haku ja koko sisällön hakeminen. Ajassa O(n), n on käsiteltävän sanan pituus. Lähteiden mukaan trien haku vie aikaa pahimmillaan O(n) ja se aikavaativuus toteutuu työssäni.
 
 ## Tilastoja peleistä
 
