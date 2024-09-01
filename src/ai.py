@@ -102,11 +102,7 @@ class AiSelector:
             ):
                 scores[i] -= 1
                 stats[i][1] += 1
-            elif (
-                (players_last_move == "k" and prediction == "p") or
-                (players_last_move == "p" and prediction == "s") or
-                (players_last_move == "s" and prediction == "k")
-            ):
+            else:
                 scores[i] += 1
                 stats[i][0] += 1
         self.manage_scores_length(scores)
