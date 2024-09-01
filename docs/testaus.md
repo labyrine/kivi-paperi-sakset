@@ -4,9 +4,11 @@ Testaamiseen on käytetty unittest-kehystä.
 
 ## Tekoälyn ja trie rakenteen integraatiotestaus
 
-Simuloidaan peliä viidentoista kieroksen ajalta, kun focus_length on 5. Jokaisella kierroksella katsotaan, että trie rakenne palauttaa oikein sisältönsä ja sen perusteella valitaan parhaiten suoriutunut malli. Lopuksi verrataan, että nämä parhaiten suoriutuneet mallit ovat palauttaneet oikein seuraavan valintansa, mitä pelata. Tässä pitää kannattaa huomata, että paras malli ja sen valinta valitaan kierroksen lopuksi valmiiksi seuraavalle kierrokselle. 
+Simuloitu peliä viidentoista kieroksen ajalta, kun focus_length on 5. Jokaisella kierroksella katsotaan, että trie rakenne palauttaa oikein sisältönsä ja sen perusteella valitaan parhaiten suoriutunut malli. Lopuksi verrataan, että nämä parhaiten suoriutuneet mallit ovat palauttaneet oikein seuraavan valintansa, mitä pelata. Tässä pitää kannattaa huomata, että paras malli ja sen valinta valitaan kierroksen lopuksi valmiiksi seuraavalle kierrokselle. 
 
 Käytin käyttäjän syötteenä kierroksille s, k, k, p, s, s, s, p, p, s, s, k, s, s, s, mikä johti siihen, että valitut mallit olivat Ai1 tai Ai2. Lisäksi mallit eivät voineet arvata mitään kuudella kierroksella (mukaan lukien ensimmäinen kierros, jolloin malleilla ei ole dataa tehdä päätöksiä)
+
+Eli testattu, että tekoälyn mallit pystytään valitsemaan oikein trie rakenteen sisällön perusteella, ja että nämä parhaat mallit valitsevat oikein seuraavalle siirrolle k, p tai s trie rakenteen sisältöön perustuen. 
 
 ## Yksikkötestauksen kattavuus
 
