@@ -1,5 +1,7 @@
 # Käyttöohje
 
+Ohjelma on kivi-paperi-sakset tekoäly. Sitä vastaan pelataan antamalla sille syötteinä pieniä kirjamia k (kivi), p (paperi) tai s (sakset). 
+
 ## Ohjelman käynnistäminen
 
 ### Riippuvuudet asennetaan terminaalissa kivi-paperi-sakset kansion sisällä komennolla
