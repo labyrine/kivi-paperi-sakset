@@ -30,6 +30,48 @@ Trien kaikki operaatiot tapahtuvat ajassa O(n). Näihin operaatioihin kuuluvat l
 
 ## Tilastoja peleistä
 
+### Tuttu 1
+
+### Pelin 1 tulokset
+Pelaaja voitti 20 kertaa
+
+Pelikone voitti 15 kertaa
+
+Tasapeli tapahtui 15 kertaa
+
+AI:n voittoprosentti: 30.0 %
+
+### Tuttu 2
+
+#### Pelin 1 tulokset
+Pelaaja voitti 9 kertaa
+
+Pelikone voitti 18 kertaa
+
+Tasapeli tapahtui 23 kertaa
+
+AI:n voittoprosentti: 36.0 %
+
+#### Pelin 2 tulokset
+Pelaaja voitti 15 kertaa
+
+Pelikone voitti 21 kertaa
+
+Tasapeli tapahtui 14 kertaa
+
+AI:n voittoprosentti: 42.0 %
+
+#### Pelin 3 tulokset
+Pelaaja voitti 11 kertaa
+
+Pelikone voitti 20 kertaa
+
+Tasapeli tapahtui 19 kertaa
+
+AI:n voittoprosentti: 40.0 %
+
+[Pelejä tarkemmin](https://github.com/labyrine/kivi-paperi-sakset/blob/main/docs/peli-tilastoja.md)
+
 ## Työn mahdolliset puutteet ja parannusehdotukset
 
 - Tällä hetkellä AI-mallien määrää ei voi muuttaa helposti vaan se on aina 6. Koodia voisi muokata niin, että mallien määrän voi vaihtaa helpimmin.
